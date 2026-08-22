@@ -1,0 +1,9 @@
+name: cuesheet_workspace
+description: Workspace root for Cuesheet. Contains no code of its own.
+publish_to: none
+
+environment:
+  sdk: ^3.11.4
+
+workspace:
+  - packages/cuesheet_domain

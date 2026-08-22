@@ -44,7 +44,13 @@ point into real code rather than an isolated snippet.
 Grouped by theme; populated as notes are written.
 
 ### Language
-_(nothing yet)_
+- [Sealed classes, exhaustive switch, and destructuring patterns](sealed-classes-and-patterns.md)
+  — Swift enums with associated values, except they are real classes and the
+  seal is a library boundary.
+- [Extension types](extension-types.md) — typed IDs that cost nothing at
+  runtime, because at runtime they are not there.
+- [Value equality, and the copyWith-null problem](value-equality-and-copywith.md)
+  — why Dart needs `freezed`, and the two traps it still does not fix.
 
 ### Concurrency
 _(nothing yet)_

@@ -95,7 +95,7 @@ value equality and `copyWith`.
 | `EpisodeFilter` | value object | Composable predicate vocabulary (§8) |
 | `SortSpec` | value object | Ordered list of sort keys |
 | `PlaybackIntent` | value object | Sealed hierarchy (§5) |
-| `QueueState` | value object | Active cuesheet id + position + playback source |
+| `QueueState` | value object | Active cuesheet + position + playback source |
 
 The split between `Episode` and `ListeningState` is the single most important
 modelling decision in the document. Justification in §6.
@@ -149,9 +149,14 @@ different queues. The view supplies its own ordering; the domain does not guess.
 
 ```dart
 sealed class PlaybackSource {}
-class FromCuesheet extends PlaybackSource { final CuesheetId id; final int position; }
-class Detached     extends PlaybackSource { final EpisodeId episode; }
+final class FromQueue extends PlaybackSource {}   // playing the active cuesheet
+final class Detached  extends PlaybackSource { final EpisodeId episode; }
 ```
+
+`FromQueue` deliberately carries no cuesheet id or position of its own: the
+active cuesheet and the position already live on `QueueState`, and a second
+copy is a bug waiting for a reorder to happen. `QueueState.nowPlaying` derives
+the playing episode from the source rather than storing it.
 
 `PlayJustThis` sets the source to `Detached`. While detached, the active cuesheet
 and its position are untouched, and completion does **not** advance the queue —
@@ -160,9 +165,11 @@ one thing" genuinely safe rather than nominally safe.
 
 ### 5.4 Undo
 
-`QueueState` is small and immutable — a cuesheet id, an integer position, and a
-source. So undo is a bounded stack of prior snapshots (20), not a set of
-command/inverse pairs. Snapshots are cheap, cannot drift out of sync with the
+`QueueState` is small and immutable — the active cuesheet, an integer position,
+and a source. So undo is a bounded stack of prior snapshots (20), not a set of
+command/inverse pairs. It holds the cuesheet by value rather than by id so that
+`applyIntent` can stay a pure function of its arguments; a list of episode ids
+is cheap enough that snapshotting it is not worth avoiding. Snapshots are cheap, cannot drift out of sync with the
 real state, and cost far less design effort to get right.
 
 Additionally: when an intent replaces an ephemeral cuesheet, the displaced
