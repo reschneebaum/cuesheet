@@ -295,6 +295,19 @@ class Not   extends EpisodeFilter { final EpisodeFilter child; }
 enum ListenState { unplayed, started, finished, relistenCandidate }
 ```
 
+The four states are **mutually exclusive**: a relisten candidate does not also
+report as `finished`, so a filter must name the state it wants. Overlapping
+states would make `AnyOf` and `Not` behave surprisingly, which is a bad
+property in a vocabulary meant to compose.
+
+The domain also ships `matchesFilter` — the same semantics evaluated in plain
+Dart over an `EpisodeView`. It is not how the app queries anything; §10's SQL
+compilation is. It exists so the vocabulary is testable before a database
+exists, and so the SQL compiler has an oracle to be property-tested against
+once it does. Two implementations of one specification is a cost worth paying
+only because the second one is three lines per case and catches real
+divergence.
+
 Sorting is an ordered list of keys, not a single column:
 
 ```dart
@@ -454,7 +467,7 @@ Front-load what is testable; defer what is not.
 | Phase | Deliverable |
 |---|---|
 | 0 | This document. Scope and architecture settled. |
-| 1 | `cuesheet_domain`, test-first. Intent algebra, filter vocabulary, listening-state semantics. No Flutter, no DB, no audio. |
+| 1 | `cuesheet_domain`, test-first. Intent algebra, filter vocabulary, listening-state semantics. No Flutter, no DB, no audio. **Done** — 204 tests. |
 | 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. |
 | 3 | Feed ingestion and directory search, fixture-driven. |
 | 4 | `cuesheet_playback`. Real devices enter the picture. |

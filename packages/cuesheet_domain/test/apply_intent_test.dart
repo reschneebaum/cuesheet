@@ -389,6 +389,67 @@ void main() {
   });
 
   // -------------------------------------------------------------------------
+  group('MoveToEnd', () {
+    test('moves a queued episode to the end', () {
+      final r = apply(queueOf('a b c d', position: 0), MoveToEnd(e('b')));
+
+      expect(r.state.active!.items, eps('a c d b'));
+      expect(r.state.nowPlaying, e('a'));
+      expectValid(r.state);
+    });
+
+    test('keeps playing the same episode when moving a different one', () {
+      final r = apply(queueOf('a b c d', position: 2), MoveToEnd(e('a')));
+
+      expect(r.state.active!.items, eps('b c d a'));
+      expect(r.state.nowPlaying, e('c'));
+      expectValid(r.state);
+    });
+
+    test('carries the playhead along when moving the playing episode', () {
+      final r = apply(queueOf('a b c', position: 1), MoveToEnd(e('b')));
+
+      expect(r.state.active!.items, eps('a c b'));
+      expect(r.state.nowPlaying, e('b'), reason: 'still playing what it was');
+      expect(r.state.position, 2);
+      expectValid(r.state);
+    });
+
+    test('is a no-op when the episode is already last', () {
+      final before = queueOf('a b c', position: 0);
+      final r = apply(before, MoveToEnd(e('c')));
+
+      expect(r.changed, isFalse);
+      expect(r.state, before);
+    });
+
+    test('is a no-op for an episode that is not queued', () {
+      final before = queueOf('a b c', position: 0);
+      final r = apply(before, MoveToEnd(e('zzz')));
+
+      expect(r.changed, isFalse);
+      expect(r.state, before);
+    });
+
+    test('is a no-op when there is no queue', () {
+      final r = apply(QueueState.empty, MoveToEnd(e('a')));
+
+      expect(r.changed, isFalse);
+    });
+
+    test('leaves detached playback alone', () {
+      final r = apply(
+        queueOf('a b c', source: const Detached(EpisodeId('z'))),
+        MoveToEnd(e('a')),
+      );
+
+      expect(r.state.active!.items, eps('b c a'));
+      expect(r.state.nowPlaying, e('z'));
+      expectValid(r.state);
+    });
+  });
+
+  // -------------------------------------------------------------------------
   group('invariants', () {
     test('a cuesheet rejects a duplicated episode', () {
       expect(

@@ -47,18 +47,23 @@ Dart — `List`'s `==` is identity. Any class with a `List` field needs
 that looks right in most tests. Swift's `Array` is `Equatable` when its element
 is, so this trap has no Swift counterpart.
 
-**`copyWith` cannot express "set this to null".** With
+**A hand-written `copyWith` cannot express "set this to null".** With
 `copyWith({PlaybackSource? source})`, the body reads
 `source ?? this.source` — so calling `copyWith(source: null)` means "leave it
 alone", and there is no way to say "clear it". The parameter's absence and an
-explicit null are indistinguishable. Real fixes are a sentinel value or a
-separate `clearSource: true` flag; both are ugly. `freezed` does not solve this
-either.
+explicit null are indistinguishable.
 
 That is why `applyIntent` constructs `QueueState(...)` directly instead of
 using `copyWith` — clearing `source` when the queue empties is exactly the case
-`copyWith` cannot express, and mixing the two idioms in one function would be
-worse than using neither.
+a hand-written `copyWith` cannot express, and mixing the two idioms in one
+function would be worse than using neither.
+
+`freezed` **does** solve this one, which is a good reason to prefer it over
+hand-rolling. Its generated `copyWith` uses a private sentinel as the default
+for every nullable parameter, so "absent" and "explicitly null" are genuinely
+different values and `copyWith(finishedAt: null)` really does clear the field.
+`markUnplayed` in `lib/src/listening.dart` relies on exactly that. See
+[freezed and code generation](freezed-and-code-generation.md).
 
 **`@immutable` is a lint, not a guarantee.** It is an annotation from
 `package:meta` that asks the analyzer to complain about non-final fields. It
@@ -98,7 +103,9 @@ print([1, 2] == [1, 2]); // false — the one that will bite you
 
 ## Next
 
-The entities coming in the rest of Phase 1 (`Episode`, `Podcast`,
-`ListeningState`) will use `freezed` rather than hand-written equality. Writing
-it by hand once, here, is what makes the generated code readable rather than
-magic.
+`Episode`, `Podcast`, `ListeningState`, and `EpisodeView` use `freezed` rather
+than hand-written equality — see
+[freezed and code generation](freezed-and-code-generation.md). Writing it by
+hand once, here, is what makes the generated code readable rather than magic:
+open `lib/src/episode.freezed.dart` and it is doing precisely what
+`Cuesheet` does by hand, plus the sentinel trick above.

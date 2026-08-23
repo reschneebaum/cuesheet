@@ -50,7 +50,8 @@ Grouped by theme; populated as notes are written.
 - [Extension types](extension-types.md) — typed IDs that cost nothing at
   runtime, because at runtime they are not there.
 - [Value equality, and the copyWith-null problem](value-equality-and-copywith.md)
-  — why Dart needs `freezed`, and the two traps it still does not fix.
+  — why Dart needs `freezed`, and the collection-equality trap.
+- [Records](records.md) — Swift tuples, except they are `Equatable` for free.
 
 ### Concurrency
 _(nothing yet)_
@@ -62,4 +63,5 @@ _(nothing yet)_
 _(nothing yet)_
 
 ### Tooling and build
-_(nothing yet)_
+- [freezed and code generation](freezed-and-code-generation.md) — `part` files,
+  `build_runner`, and what the generated code actually contains.

@@ -56,6 +56,18 @@ final class ReplaceQueue extends PlaybackIntent {
   final int startAt;
 }
 
+/// Move an episode that is already queued to the end of the queue.
+///
+/// Distinct from [AppendToQueue], which is a no-op for an episode already in
+/// the queue. Two different things to want, so two named intents — and the UI
+/// tells you which one a control will do before you tap it. See
+/// `previewIntent`.
+final class MoveToEnd extends PlaybackIntent {
+  const MoveToEnd(this.episode);
+
+  final EpisodeId episode;
+}
+
 final class RemoveFromQueue extends PlaybackIntent {
   const RemoveFromQueue(this.episode);
 

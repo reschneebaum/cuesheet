@@ -120,6 +120,23 @@ IntentResult applyIntent(
       items.insert((position + 1).clamp(0, items.length), episode);
       return _withItems(current, active, items, position, current.source);
 
+    case MoveToEnd(:final episode):
+      final active = current.active;
+      if (active == null) return IntentResult.unchanged(current);
+      final index = active.items.indexOf(episode);
+      if (index < 0) return IntentResult.unchanged(current);
+      // Deliberately defined in terms of ReorderQueue rather than reimplemented:
+      // moving to the end is a move like any other, and the playhead rules are
+      // subtle enough that two copies of them would eventually disagree. The
+      // already-last case falls out for free — the reorder produces an
+      // identical list, and _withItems collapses that to a no-op.
+      return applyIntent(
+        current,
+        ReorderQueue(from: index, to: active.items.length - 1),
+        visibleList,
+        newCuesheetId: newCuesheetId,
+      );
+
     case RemoveFromQueue(:final episode):
       final active = current.active;
       if (active == null) return IntentResult.unchanged(current);
