@@ -116,7 +116,15 @@ class PlayFromHere     extends PlaybackIntent { final EpisodeId episode;
                                                 final TraversalOrder order; }
 
 class InsertNext       extends PlaybackIntent { final EpisodeId episode; }
+
+// Adds to the end. A no-op if the episode is already queued: "make sure this
+// gets played" must never silently reorder the queue.
 class AppendToQueue    extends PlaybackIntent { final EpisodeId episode; }
+
+// Moves an already-queued episode to the end. Distinct from AppendToQueue
+// because it is a distinct thing to want, and the UI says so before you tap
+// it — see §5.5.
+class MoveToEnd        extends PlaybackIntent { final EpisodeId episode; }
 class ReplaceQueue     extends PlaybackIntent { final List<EpisodeId> episodes;
                                                 final int startAt; }
 class RemoveFromQueue  extends PlaybackIntent { final EpisodeId episode; }
@@ -169,13 +177,46 @@ one thing" genuinely safe rather than nominally safe.
 and a source. So undo is a bounded stack of prior snapshots (20), not a set of
 command/inverse pairs. It holds the cuesheet by value rather than by id so that
 `applyIntent` can stay a pure function of its arguments; a list of episode ids
-is cheap enough that snapshotting it is not worth avoiding. Snapshots are cheap, cannot drift out of sync with the
-real state, and cost far less design effort to get right.
+is cheap enough that snapshotting it is not worth avoiding. Snapshots cannot
+drift out of sync with the real state, which is the failure mode of
+command/inverse undo, and they cost far less design effort to get right.
 
 Additionally: when an intent replaces an ephemeral cuesheet, the displaced
 cuesheet is retained as *recently replaced* rather than deleted. Losing an
 accidentally-clobbered queue is one of the specific complaints this app exists
 to fix, and an undo stack that only survives in memory does not fix it.
+
+### 5.5 Previewing an intent
+
+A control that says **Move to end** and then does nothing has lied to the user.
+That is the exact class of surprise this app exists to eliminate, so the UI is
+not permitted to invent its own labels or its own enabled/disabled logic.
+
+The domain answers the question instead:
+
+```dart
+IntentPreview previewIntent(
+  QueueState current,
+  PlaybackIntent intent,
+  List<EpisodeId> visibleList,
+);
+
+class IntentPreview {
+  final bool willChange;   // false => render as already-satisfied, not enabled
+  final String verb;       // "Add to queue" / "Move to end" / "Play next"
+  final String? detail;    // "already #3 in queue"
+}
+```
+
+`previewIntent` and `applyIntent` share the same rules, so a label cannot drift
+away from the behaviour it describes — there is one source of truth and the UI
+reads from it. It is a pure function over the same arguments, so it is tested
+in the same suite.
+
+This is what makes the queue-membership affordance safe: an episode already in
+the queue offers `MoveToEnd` rather than a dead `AppendToQueue`, and the row
+itself shows membership (queued, position, playing) rather than hiding it
+behind a tap.
 
 ## 6. Episode identity
 
@@ -225,6 +266,10 @@ class Cuesheet {
 - "Save this queue" is a **promotion**: `kind` flips to `saved` and a title
   becomes required. No copy, no second model, no divergence between the thing
   you were listening to and the thing you saved.
+- **Materializing** a smart list (§8) produces a saved cuesheet seeded from
+  that list's current contents. This is a snapshot, deliberately: the result is
+  a concrete, hand-orderable list that no longer tracks the filter, and the
+  user can tell which of the two they are holding.
 
 ## 8. Filtering and sorting
 
@@ -261,6 +306,22 @@ class SortSpec { final SortField field; final bool descending; }
 Because filters and sorts are serializable values, **saved smart lists are
 nearly free**: a `saved_filters` row is a name plus a serialized filter and sort.
 No new query code, no new UI plumbing per list.
+
+**Smart lists are sort-driven only. They cannot be hand-ordered.** A pinned
+manual order would mean a persisted position per (list, episode), and a
+permanent obligation to answer: where does a newly-matching episode land in the
+manual order; what happens to an episode that stops matching but has a
+placement; what happens to the order when the filter is edited; and what
+happens when two devices order differently — a sync-shaped problem in an app
+that has deferred sync. That is two sources of truth for order plus a
+reconciliation pass on every refresh.
+
+The escape hatch is materialization (§7): hand-arranging a smart list means
+snapshotting it into a saved cuesheet. One operation instead of a
+reconciliation engine, and the snapshot/live-view distinction stays visible to
+the user instead of being blended away. Multi-key sorting absorbs most of the
+demand anyway — "last listened descending, then published descending" is
+usually what someone reaching for manual order actually wants.
 
 ## 9. Listening state semantics
 
@@ -430,5 +491,8 @@ design — so the machine is observable long before Phase 5.
 - Should `remainingTime` sorting count against the finish threshold or true
   duration? Affects "almost done" style smart lists.
 - Relisten window default of 90 days is a guess. Needs real usage to calibrate.
-- Whether saved smart lists can also pin a manual order, or are always
-  sort-driven.
+
+Resolved since the first draft:
+
+- *Can saved smart lists pin a manual order?* No — sort-driven only, with
+  materialization (§7, §8) as the escape hatch.
