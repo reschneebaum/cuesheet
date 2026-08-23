@@ -6,6 +6,7 @@
 library;
 
 export 'src/database.dart';
+export 'src/filter_json.dart';
 export 'src/filter_sql.dart';
 export 'src/mappers.dart';
 export 'src/normalize_url.dart';

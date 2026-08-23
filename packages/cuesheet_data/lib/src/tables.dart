@@ -135,9 +135,6 @@ class Cuesheets extends Table {
   /// from "PlayFromHere" is useful; replaying it is not.
   TextColumn get originIntent => text().nullable()();
 
-  /// Exactly one cuesheet is the queue. Enforced in code, not by the schema.
-  BoolColumn get isActive => boolean().withDefault(const Constant(false))();
-
   /// Set when this ephemeral cuesheet was displaced by another. Retained
   /// rather than deleted so a clobbered queue can be recovered (§5.4).
   DateTimeColumn get displacedAt => dateTime().nullable()();
@@ -167,6 +164,37 @@ class SavedFilters extends Table {
   TextColumn get name => text()();
   TextColumn get filterJson => text()();
   TextColumn get sortJson => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
+}
+
+/// Which playback source the stored queue is in.
+enum PlaybackSourceKind { queue, detached }
+
+/// The queue, as a single row.
+///
+/// There is exactly one queue, so this table has exactly one row, with a
+/// constant primary key. A table for a singleton looks odd until you consider
+/// the alternatives: a key-value blob loses the foreign keys, and hanging the
+/// position off `cuesheets` would mean every saved cuesheet carries a
+/// playhead it has no business owning.
+@DataClassName('QueueStateRow')
+class QueueStates extends Table {
+  /// Always zero.
+  IntColumn get id => integer().withDefault(const Constant(0))();
+
+  TextColumn get activeCuesheetId => text()
+      .nullable()
+      .references(Cuesheets, #id, onDelete: KeyAction.setNull)();
+
+  IntColumn get position => integer().withDefault(const Constant(0))();
+
+  TextColumn get sourceKind => textEnum<PlaybackSourceKind>().nullable()();
+
+  TextColumn get detachedEpisodeId => text()
+      .nullable()
+      .references(Episodes, #id, onDelete: KeyAction.setNull)();
 
   @override
   Set<Column<Object>> get primaryKey => {id};

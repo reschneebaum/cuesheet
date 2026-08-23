@@ -1,96 +1,58 @@
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'episode_view.dart';
 import 'ids.dart';
 import 'listening.dart';
 import 'listening_state.dart';
 
+part 'episode_filter.freezed.dart';
+
 /// A composable predicate over episodes.
 ///
 /// The domain owns the *vocabulary*; `cuesheet_data` owns compiling it to SQL,
 /// so nothing here knows that a database exists. [matchesFilter] below is a
 /// reference implementation of the same semantics in plain Dart — it makes the
-/// vocabulary testable now, and gives the SQL compiler an oracle to be checked
-/// against later.
-@immutable
-sealed class EpisodeFilter {
-  const EpisodeFilter();
-}
+/// vocabulary testable without a database, and gives the SQL compiler an
+/// oracle to be property-tested against.
+///
+/// Written as a freezed union so the variants get value equality and deep
+/// collection comparison for free. Filters are values that get saved, loaded,
+/// and compared; hand-writing `==` across eleven variants with `Set` and
+/// `List` fields is exactly the boilerplate that goes quietly wrong.
+@freezed
+sealed class EpisodeFilter with _$EpisodeFilter {
+  const factory EpisodeFilter.listenStateIs(Set<ListenState> states) =
+      ListenStateIs;
 
-final class ListenStateIs extends EpisodeFilter {
-  const ListenStateIs(this.states);
+  const factory EpisodeFilter.inPodcasts(Set<PodcastId> ids) = InPodcasts;
 
-  final Set<ListenState> states;
-}
+  const factory EpisodeFilter.inCategories(Set<CategoryId> ids) = InCategories;
 
-final class InPodcasts extends EpisodeFilter {
-  const InPodcasts(this.ids);
+  /// Inclusive on both ends; either bound may be omitted.
+  const factory EpisodeFilter.durationBetween({Duration? min, Duration? max}) =
+      DurationBetween;
 
-  final Set<PodcastId> ids;
-}
+  const factory EpisodeFilter.publishedBetween({DateTime? from, DateTime? to}) =
+      PublishedBetween;
 
-final class InCategories extends EpisodeFilter {
-  const InCategories(this.ids);
+  const factory EpisodeFilter.lastPlayedBetween({DateTime? from, DateTime? to}) =
+      LastPlayedBetween;
 
-  final Set<CategoryId> ids;
-}
+  const factory EpisodeFilter.playCountBetween({int? min, int? max}) =
+      PlayCountBetween;
 
-/// Inclusive on both ends; either bound may be omitted.
-final class DurationBetween extends EpisodeFilter {
-  const DurationBetween({this.min, this.max});
+  /// Case-insensitive substring match on the episode title only. Searching
+  /// podcast titles too is `AnyOf([TitleContains(t), PodcastTitleContains(t)])`
+  /// once that exists — composing beats widening.
+  const factory EpisodeFilter.titleContains(String text) = TitleContains;
 
-  final Duration? min;
-  final Duration? max;
-}
+  /// Vacuously true when empty.
+  const factory EpisodeFilter.allOf(List<EpisodeFilter> children) = AllOf;
 
-final class PublishedBetween extends EpisodeFilter {
-  const PublishedBetween({this.from, this.to});
+  /// Vacuously false when empty.
+  const factory EpisodeFilter.anyOf(List<EpisodeFilter> children) = AnyOf;
 
-  final DateTime? from;
-  final DateTime? to;
-}
-
-final class LastPlayedBetween extends EpisodeFilter {
-  const LastPlayedBetween({this.from, this.to});
-
-  final DateTime? from;
-  final DateTime? to;
-}
-
-final class PlayCountBetween extends EpisodeFilter {
-  const PlayCountBetween({this.min, this.max});
-
-  final int? min;
-  final int? max;
-}
-
-/// Case-insensitive substring match on the episode title only. Searching
-/// podcast titles too is `AnyOf([TitleContains(t), PodcastTitleContains(t)])`
-/// once that exists — composing beats widening.
-final class TitleContains extends EpisodeFilter {
-  const TitleContains(this.text);
-
-  final String text;
-}
-
-/// Vacuously true when empty.
-final class AllOf extends EpisodeFilter {
-  const AllOf(this.children);
-
-  final List<EpisodeFilter> children;
-}
-
-/// Vacuously false when empty.
-final class AnyOf extends EpisodeFilter {
-  const AnyOf(this.children);
-
-  final List<EpisodeFilter> children;
-}
-
-final class Not extends EpisodeFilter {
-  const Not(this.child);
-
-  final EpisodeFilter child;
+  const factory EpisodeFilter.not(EpisodeFilter child) = Not;
 }
 
 /// Reference evaluation of [filter] against [view].

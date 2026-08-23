@@ -11,3 +11,5 @@ extension type const CuesheetId(String value) {}
 extension type const PodcastId(String value) {}
 
 extension type const CategoryId(String value) {}
+
+extension type const SavedFilterId(String value) {}

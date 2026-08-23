@@ -386,10 +386,29 @@ listening_state     (episode_id PK, position_ms, play_count, start_count,
 categories          (id, name, color)
 podcast_categories  (podcast_id, category_id)
 episode_categories  (episode_id, category_id)
-cuesheets           (id, kind, title, created_at, origin_intent, is_active)
+cuesheets           (id, kind, title, created_at, origin_intent, displaced_at)
 cuesheet_items      (cuesheet_id, position, episode_id)   -- composite PK
 saved_filters       (id, name, filter_json, sort_json)
+queue_states        (id, active_cuesheet_id, position, source_kind,
+                     detached_episode_id)   -- exactly one row
 ```
+
+`queue_states` holds the queue as a single row with a constant primary key.
+The first draft put an `is_active` flag on `cuesheets` instead; two places
+recording which cuesheet is the queue is one place too many, and the position
+and playback source have to live somewhere that is not every saved cuesheet.
+
+`origin_intent` stores only the intent's *name*. Knowing a queue came from
+"PlayFromHere" is useful; replaying it is not. Provenance is therefore lossy
+across persistence, and `Cuesheet`'s equality excludes it so round-tripping
+stays clean.
+
+`created_at` is set on insert and deliberately excluded from the update path:
+re-saving a cuesheet is not re-creating it.
+
+Filter and sort serialization (`filter_json`, `sort_json`) lives in
+`cuesheet_data`, not the domain — JSON is a storage concern, and the domain
+should be readable without knowing how its values get written down.
 
 Indices: `episodes(podcast_id, published_at)`, `episodes(guid)`,
 `episodes(normalized_enclosure_url)`, `listening_state(last_played_at)`,
@@ -481,7 +500,7 @@ Front-load what is testable; defer what is not.
 |---|---|
 | 0 | This document. Scope and architecture settled. |
 | 1 | `cuesheet_domain`, test-first. Intent algebra, filter vocabulary, listening-state semantics. No Flutter, no DB, no audio. **Done** — 204 tests. |
-| 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **In progress** — schema, filter/sort compilation, and the podcast, episode, and listening repositories are done and agreement-tested; cuesheet, category, and saved-filter repositories remain, then the debug UI. |
+| 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **Nearly done** — schema, filter/sort compilation, and all six repositories are implemented and tested (118 tests). Only the debug UI remains. |
 | 3 | Feed ingestion and directory search, fixture-driven. |
 | 4 | `cuesheet_playback`. Real devices enter the picture. |
 | 5 | `cuesheet_ui` and `cuesheet_app`. By now the engine works; the UI is a thin reactive skin. |

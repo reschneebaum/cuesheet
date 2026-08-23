@@ -5,6 +5,7 @@
 library;
 
 export 'src/apply_intent.dart';
+export 'src/category.dart';
 export 'src/cuesheet.dart';
 export 'src/episode.dart';
 export 'src/episode_filter.dart';
@@ -17,4 +18,5 @@ export 'src/playback_intent.dart';
 export 'src/preview_intent.dart';
 export 'src/queue_state.dart';
 export 'src/repositories.dart';
+export 'src/saved_filter.dart';
 export 'src/sort_spec.dart';

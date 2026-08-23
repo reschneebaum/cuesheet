@@ -74,6 +74,14 @@ first:
 if (current.source case Detached(episode: final playing)) { … }
 ```
 
+## The generated alternative
+
+`freezed` can generate this whole shape from a set of factory redirects,
+adding `==` and `hashCode` with deep collection equality. `EpisodeFilter` uses
+that form; `PlaybackIntent` stays hand-written here because nothing compares
+intents and the plain declaration reads better. See
+[freezed and code generation](freezed-and-code-generation.md#unions-the-other-half-of-what-freezed-does).
+
 ## Minimal example
 
 ```dart

@@ -2,8 +2,10 @@ import 'package:cuesheet_domain/cuesheet_domain.dart';
 import 'package:drift/drift.dart';
 
 import 'database.dart';
+import 'filter_json.dart';
 import 'filter_sql.dart';
 import 'mappers.dart';
+import 'tables.dart';
 
 class DriftPodcastRepository implements PodcastRepository {
   DriftPodcastRepository(this.db);
@@ -143,4 +145,284 @@ class DriftEpisodeRepository implements EpisodeRepository {
         ),
     ];
   }
+}
+
+class DriftCategoryRepository implements CategoryRepository {
+  DriftCategoryRepository(this.db);
+
+  final CuesheetDatabase db;
+
+  @override
+  Stream<List<Category>> watchAll() => (db.select(db.categories)
+        ..orderBy([(t) => OrderingTerm.asc(t.name)]))
+      .watch()
+      .map((rows) => [
+            for (final r in rows)
+              Category(id: CategoryId(r.id), name: r.name, color: r.color),
+          ]);
+
+  @override
+  Future<void> upsert(Category category) =>
+      db.into(db.categories).insertOnConflictUpdate(CategoriesCompanion.insert(
+            id: category.id.value,
+            name: category.name,
+            color: Value(category.color),
+          ));
+
+  @override
+  Future<void> remove(CategoryId id) =>
+      (db.delete(db.categories)..where((t) => t.id.equals(id.value))).go();
+
+  @override
+  Future<Set<CategoryId>> podcastCategories(PodcastId podcast) async {
+    final rows = await (db.select(db.podcastCategories)
+          ..where((t) => t.podcastId.equals(podcast.value)))
+        .get();
+    return {for (final r in rows) CategoryId(r.categoryId)};
+  }
+
+  @override
+  Future<void> setPodcastCategories(PodcastId podcast, Set<CategoryId> ids) =>
+      db.transaction(() async {
+        await (db.delete(db.podcastCategories)
+              ..where((t) => t.podcastId.equals(podcast.value)))
+            .go();
+        await db.batch((b) => b.insertAll(db.podcastCategories, [
+              for (final id in ids)
+                PodcastCategoriesCompanion.insert(
+                    podcastId: podcast.value, categoryId: id.value),
+            ]));
+      });
+
+  @override
+  Future<void> setEpisodeCategories(EpisodeId episode, Set<CategoryId> ids) =>
+      db.transaction(() async {
+        await (db.delete(db.episodeCategories)
+              ..where((t) => t.episodeId.equals(episode.value)))
+            .go();
+        await db.batch((b) => b.insertAll(db.episodeCategories, [
+              for (final id in ids)
+                EpisodeCategoriesCompanion.insert(
+                    episodeId: episode.value, categoryId: id.value),
+            ]));
+      });
+}
+
+class DriftCuesheetRepository implements CuesheetRepository {
+  DriftCuesheetRepository(this.db, {required this.clock, this.keepDisplaced = 10});
+
+  final CuesheetDatabase db;
+  final DateTime Function() clock;
+
+  /// How many displaced queues to keep before pruning the oldest. Recovering
+  /// a clobbered queue is a thing you do within minutes, not weeks.
+  final int keepDisplaced;
+
+  static const int _theOnlyQueue = 0;
+
+  @override
+  Stream<QueueState> watchQueue() => db
+      .customSelect(
+        'SELECT 1',
+        // The queue changes when the pointer changes, when the active
+        // cuesheet's metadata changes, and when its items are reordered. A
+        // plain select on queue_states would miss the last of those.
+        readsFrom: {db.queueStates, db.cuesheets, db.cuesheetItems},
+      )
+      .watch()
+      .asyncMap((_) => queue());
+
+  @override
+  Future<QueueState> queue() async {
+    final row = await (db.select(db.queueStates)
+          ..where((t) => t.id.equals(_theOnlyQueue)))
+        .getSingleOrNull();
+    if (row == null) return QueueState.empty;
+
+    final activeId = row.activeCuesheetId;
+    final active = activeId == null ? null : await byId(CuesheetId(activeId));
+    final detached = row.detachedEpisodeId;
+
+    final source = switch (row.sourceKind) {
+      null => null,
+      PlaybackSourceKind.queue => const FromQueue(),
+      PlaybackSourceKind.detached =>
+        detached == null ? null : Detached(EpisodeId(detached)),
+    };
+
+    return QueueState(active: active, position: row.position, source: source);
+  }
+
+  @override
+  Future<void> saveQueue(QueueState state, {Cuesheet? displaced}) =>
+      db.transaction(() async {
+        if (displaced != null) {
+          await _write(displaced, displacedAt: clock());
+        }
+        final active = state.active;
+        if (active != null) await _write(active);
+
+        final source = state.source;
+        await db.into(db.queueStates).insertOnConflictUpdate(
+              QueueStatesCompanion.insert(
+                id: const Value(_theOnlyQueue),
+                activeCuesheetId: Value(active?.id.value),
+                position: Value(state.position),
+                sourceKind: Value(switch (source) {
+                  null => null,
+                  FromQueue() => PlaybackSourceKind.queue,
+                  Detached() => PlaybackSourceKind.detached,
+                }),
+                detachedEpisodeId:
+                    Value(source is Detached ? source.episode.value : null),
+              ),
+            );
+
+        await _pruneDisplaced();
+      });
+
+  @override
+  Stream<List<Cuesheet>> watchSaved() => (db.select(db.cuesheets)
+        ..where((t) => t.kind.equalsValue(CuesheetKind.saved))
+        ..orderBy([(t) => OrderingTerm.desc(t.createdAt)]))
+      .watch()
+      .asyncMap((rows) async =>
+          [for (final row in rows) await _hydrate(row)]);
+
+  @override
+  Future<Cuesheet?> byId(CuesheetId id) async {
+    final row = await (db.select(db.cuesheets)
+          ..where((t) => t.id.equals(id.value)))
+        .getSingleOrNull();
+    return row == null ? null : _hydrate(row);
+  }
+
+  @override
+  Future<void> save(Cuesheet cuesheet) => db.transaction(() => _write(cuesheet));
+
+  @override
+  Future<void> remove(CuesheetId id) =>
+      (db.delete(db.cuesheets)..where((t) => t.id.equals(id.value))).go();
+
+  @override
+  Future<List<Cuesheet>> recentlyDisplaced({int limit = 5}) async {
+    final rows = await (db.select(db.cuesheets)
+          ..where((t) => t.displacedAt.isNotNull())
+          ..orderBy([(t) => OrderingTerm.desc(t.displacedAt)])
+          ..limit(limit))
+        .get();
+    return [for (final row in rows) await _hydrate(row)];
+  }
+
+  Future<Cuesheet> _hydrate(CuesheetRow row) async {
+    final items = await (db.select(db.cuesheetItems)
+          ..where((t) => t.cuesheetId.equals(row.id))
+          ..orderBy([(t) => OrderingTerm.asc(t.position)]))
+        .get();
+    return Cuesheet(
+      id: CuesheetId(row.id),
+      kind: row.kind,
+      title: row.title,
+      items: [for (final i in items) EpisodeId(i.episodeId)],
+      // `origin` is deliberately not restored. Only the intent's name is
+      // stored, because knowing a queue came from "PlayFromHere" is useful and
+      // replaying it is not. Provenance is lossy across persistence, and
+      // Cuesheet's equality excludes origin so round-tripping stays clean.
+    );
+  }
+
+  Future<void> _write(Cuesheet sheet, {DateTime? displacedAt}) async {
+    await db.into(db.cuesheets).insert(
+          CuesheetsCompanion.insert(
+            id: sheet.id.value,
+            kind: sheet.kind,
+            createdAt: clock(),
+            title: Value(sheet.title),
+            originIntent: Value(sheet.origin?.runtimeType.toString()),
+            displacedAt: Value(displacedAt),
+          ),
+          // createdAt is deliberately absent from the update: it records when
+          // the cuesheet first existed, and re-saving it is not re-creating it.
+          onConflict: DoUpdate((_) => CuesheetsCompanion(
+                kind: Value(sheet.kind),
+                title: Value(sheet.title),
+                originIntent: Value(sheet.origin?.runtimeType.toString()),
+                displacedAt: Value(displacedAt),
+              )),
+        );
+
+    // Items are replaced wholesale. Diffing a reorder against the stored rows
+    // would be more code for no benefit at these list sizes.
+    await (db.delete(db.cuesheetItems)
+          ..where((t) => t.cuesheetId.equals(sheet.id.value)))
+        .go();
+    await db.batch((b) => b.insertAll(db.cuesheetItems, [
+          for (var i = 0; i < sheet.items.length; i++)
+            CuesheetItemsCompanion.insert(
+              cuesheetId: sheet.id.value,
+              position: i,
+              episodeId: sheet.items[i].value,
+            ),
+        ]));
+  }
+
+  Future<void> _pruneDisplaced() async {
+    final keep = await (db.select(db.cuesheets)
+          ..where((t) => t.displacedAt.isNotNull())
+          ..orderBy([(t) => OrderingTerm.desc(t.displacedAt)])
+          ..limit(keepDisplaced))
+        .get();
+    await (db.delete(db.cuesheets)
+          ..where((t) =>
+              t.displacedAt.isNotNull() &
+              t.kind.equalsValue(CuesheetKind.ephemeral) &
+              t.id.isNotIn([for (final r in keep) r.id])))
+        .go();
+  }
+}
+
+class DriftSavedFilterRepository implements SavedFilterRepository {
+  DriftSavedFilterRepository(this.db);
+
+  final CuesheetDatabase db;
+
+  @override
+  Stream<List<SavedFilter>> watchAll() => (db.select(db.savedFilters)
+        ..orderBy([(t) => OrderingTerm.asc(t.name)]))
+      .watch()
+      .map((rows) => [for (final row in rows) _toSavedFilter(row)]);
+
+  @override
+  Future<SavedFilter?> byId(SavedFilterId id) async {
+    final row = await (db.select(db.savedFilters)
+          ..where((t) => t.id.equals(id.value)))
+        .getSingleOrNull();
+    return row == null ? null : _toSavedFilter(row);
+  }
+
+  @override
+  Future<void> upsert(SavedFilter filter) {
+    final encoded = encodeQuery(filter.query);
+    return db.into(db.savedFilters).insertOnConflictUpdate(
+          SavedFiltersCompanion.insert(
+            id: filter.id.value,
+            name: filter.name,
+            filterJson: encoded.filterJson,
+            sortJson: encoded.sortJson,
+          ),
+        );
+  }
+
+  @override
+  Future<void> remove(SavedFilterId id) =>
+      (db.delete(db.savedFilters)..where((t) => t.id.equals(id.value))).go();
+
+  SavedFilter _toSavedFilter(SavedFilterRow row) => SavedFilter(
+        id: SavedFilterId(row.id),
+        name: row.name,
+        query: decodeQuery(
+          filterJson: row.filterJson,
+          sortJson: row.sortJson,
+        ),
+      );
 }

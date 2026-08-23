@@ -81,6 +81,42 @@ private sentinel as each nullable parameter's default. So
 `copyWith(finishedAt: null)` genuinely clears the field — see
 [value equality and the copyWith-null problem](value-equality-and-copywith.md).
 
+## Unions: the other half of what freezed does
+
+The same annotation also generates **sealed unions** — multiple named
+constructors on one sealed type, each redirecting to a generated concrete
+class:
+
+```dart
+@freezed
+sealed class EpisodeFilter with _$EpisodeFilter {
+  const factory EpisodeFilter.titleContains(String text) = TitleContains;
+  const factory EpisodeFilter.not(EpisodeFilter child) = Not;
+  const factory EpisodeFilter.allOf(List<EpisodeFilter> children) = AllOf;
+}
+```
+
+The `= TitleContains` part is a **constructor redirect**: it names the class
+freezed should generate for that variant. Which means the variants stay
+ordinary classes with ordinary constructors — `const TitleContains('x')` works,
+`case TitleContains(:final text)` works, and `switch` over the sealed type is
+still exhaustiveness-checked. Converting `EpisodeFilter` from eleven
+hand-written classes to this union changed **zero call sites**.
+
+What it buys over hand-writing the hierarchy is `==` and `hashCode` on every
+variant, with **deep collection equality** — so two `AllOf` filters holding
+equal lists of equal children compare equal, which hand-written code gets wrong
+by default (see [value equality](value-equality-and-copywith.md)). For a type
+that gets saved, loaded, and compared, that is the difference between working
+and quietly not.
+
+This is the closest Dart gets to a Swift enum with associated values *plus*
+automatic `Equatable` synthesis. Compare
+[sealed classes and patterns](sealed-classes-and-patterns.md), which covers the
+hand-written form and when it is still the right choice — `PlaybackIntent` is
+deliberately still hand-written, because nothing compares intents for equality
+and the plain version reads better.
+
 ## Minimal example
 
 ```dart

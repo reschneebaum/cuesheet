@@ -19,6 +19,7 @@ part 'database.g.dart';
     Cuesheets,
     CuesheetItems,
     SavedFilters,
+    QueueStates,
   ],
 )
 class CuesheetDatabase extends _$CuesheetDatabase {
