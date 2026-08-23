@@ -398,6 +398,19 @@ Indices: `episodes(podcast_id, published_at)`, `episodes(guid)`,
 Repositories are declared as interfaces in `cuesheet_domain` and implemented
 here. Queries return streams so the UI is reactive by default.
 
+**Row classes are named apart from entities.** Drift's default naming would
+generate `Episode`, `Podcast`, `ListeningState`, and `Cuesheet` — colliding
+with the domain entities of the same name. Every table names its row class
+explicitly with a `Row` suffix instead. The collision was a useful accident: a
+row is not an entity. It has nullable columns where the domain has defaults and
+foreign keys where the domain has composition, and keeping the names apart
+makes it obvious at every use site which side of the boundary you are on.
+
+**Timestamps are stored as ISO-8601 text**, not drift's default unix seconds,
+which truncates. Sub-second truncation would make the database disagree with
+the domain about relisten staleness — a discrepancy that shows up only under
+the agreement tests below and is miserable to find in the wild.
+
 ## 11. Playback
 
 `cuesheet_domain` declares the boundary and knows nothing about how audio works:
@@ -455,7 +468,7 @@ cheapest to run.
 | Package | Approach |
 |---|---|
 | `cuesheet_domain` | `package:test`. Pure functions, no mocks needed. Target 100% — it is achievable here and nowhere else. |
-| `cuesheet_data` | `flutter_test` against `NativeDatabase.memory()` — real schema, real SQL, still fast. Plus explicit migration tests: open at old schema, migrate, assert. |
+| `cuesheet_data` | `package:test` against `NativeDatabase.memory()` — real schema, real SQL, still fast. The package turned out to need no Flutter dependency at all: a Flutter host supplies the native SQLite binaries, so the data layer stays pure Dart and its tests stay quick. Plus explicit migration tests once there is a second schema version. |
 | Feed parsing | Fixture corpus of deliberately ugly real-world feeds in `test/fixtures/feeds/`, harvested from actual subscriptions. |
 | `cuesheet_playback` | `FakeAudioEngine` for the seams; real verification is manual, on device. |
 | `cuesheet_app` | Widget tests asserting **intent affordances**: tapping an episode row fires `PlayJustThis` and does not mutate the queue. That is a regression test for the app's reason for existing. |
@@ -468,7 +481,7 @@ Front-load what is testable; defer what is not.
 |---|---|
 | 0 | This document. Scope and architecture settled. |
 | 1 | `cuesheet_domain`, test-first. Intent algebra, filter vocabulary, listening-state semantics. No Flutter, no DB, no audio. **Done** — 204 tests. |
-| 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. |
+| 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **In progress** — schema, filter/sort compilation, and the podcast, episode, and listening repositories are done and agreement-tested; cuesheet, category, and saved-filter repositories remain, then the debug UI. |
 | 3 | Feed ingestion and directory search, fixture-driven. |
 | 4 | `cuesheet_playback`. Real devices enter the picture. |
 | 5 | `cuesheet_ui` and `cuesheet_app`. By now the engine works; the UI is a thin reactive skin. |

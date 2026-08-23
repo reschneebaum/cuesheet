@@ -54,7 +54,8 @@ Grouped by theme; populated as notes are written.
 - [Records](records.md) — Swift tuples, except they are `Equatable` for free.
 
 ### Concurrency
-_(nothing yet)_
+- [Streams](streams-vs-combine.md) — Combine and AsyncSequence rolled into one
+  type, with single-subscription as the trap.
 
 ### State management
 _(nothing yet)_

@@ -16,4 +16,5 @@ export 'src/podcast.dart';
 export 'src/playback_intent.dart';
 export 'src/preview_intent.dart';
 export 'src/queue_state.dart';
+export 'src/repositories.dart';
 export 'src/sort_spec.dart';

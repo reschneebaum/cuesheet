@@ -1,0 +1,26 @@
+name: cuesheet_data
+description: >-
+  Persistence and ingestion for Cuesheet. Owns the Drift schema, the
+  repository implementations declared by cuesheet_domain, and the compilation
+  of the domain's filter vocabulary into SQL. Pure Dart — a Flutter host
+  supplies the native SQLite binaries, this package does not depend on them.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.11.4
+
+resolution: workspace
+
+dependencies:
+  cuesheet_domain:
+    path: ../cuesheet_domain
+  drift: ^2.34.0
+  meta: ^1.17.0
+
+dev_dependencies:
+  build_runner: ^2.7.0
+  drift_dev: ^2.34.0
+  lints: ^6.0.0
+  sqlite3: ^3.5.0
+  test: ^1.26.2
