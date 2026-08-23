@@ -490,7 +490,7 @@ cheapest to run.
 | `cuesheet_data` | `package:test` against `NativeDatabase.memory()` — real schema, real SQL, still fast. The package turned out to need no Flutter dependency at all: a Flutter host supplies the native SQLite binaries, so the data layer stays pure Dart and its tests stay quick. Plus explicit migration tests once there is a second schema version. |
 | Feed parsing | Fixture corpus of deliberately ugly real-world feeds in `test/fixtures/feeds/`, harvested from actual subscriptions. |
 | `cuesheet_playback` | `FakeAudioEngine` for the seams; real verification is manual, on device. |
-| `cuesheet_app` | Widget tests asserting **intent affordances**: tapping an episode row fires `PlayJustThis` and does not mutate the queue. That is a regression test for the app's reason for existing. |
+| `cuesheet_app` | Widget tests asserting **intent affordances** against the real stack — real widgets, real repositories, real SQLite — with only the database swapped for an in-memory one. One `overrides:` entry is the whole substitution, which is the payoff for wiring every dependency in one place. They assert the things the app exists for: that "play just this" leaves the queue untouched, that a replaced queue stays recoverable, and that a control which will do nothing says so rather than lying. See [widget-test-traps](notes/widget-test-traps.md) for the fake-clock hazards. |
 
 ## 14. Build order
 
@@ -500,7 +500,7 @@ Front-load what is testable; defer what is not.
 |---|---|
 | 0 | This document. Scope and architecture settled. |
 | 1 | `cuesheet_domain`, test-first. Intent algebra, filter vocabulary, listening-state semantics. No Flutter, no DB, no audio. **Done** — 204 tests. |
-| 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **Nearly done** — schema, filter/sort compilation, and all six repositories are implemented and tested (118 tests). Only the debug UI remains. |
+| 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **Done** — schema, filter/sort compilation, all six repositories (118 tests), and the debug harness in `cuesheet_app` (7 widget tests). |
 | 3 | Feed ingestion and directory search, fixture-driven. |
 | 4 | `cuesheet_playback`. Real devices enter the picture. |
 | 5 | `cuesheet_ui` and `cuesheet_app`. By now the engine works; the UI is a thin reactive skin. |

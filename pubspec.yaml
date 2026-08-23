@@ -6,5 +6,6 @@ environment:
   sdk: ^3.11.4
 
 workspace:
+  - packages/cuesheet_app
   - packages/cuesheet_data
   - packages/cuesheet_domain

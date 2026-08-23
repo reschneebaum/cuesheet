@@ -65,6 +65,11 @@ _(nothing yet)_
 ### Persistence
 _(nothing yet)_
 
+### Testing
+- [Widget testing: fake time, and three ways it bites](widget-test-traps.md) —
+  `pumpAndSettle` vs infinite animations, `pump()` not advancing the clock, and
+  teardown ordering.
+
 ### Tooling and build
 - [freezed and code generation](freezed-and-code-generation.md) — `part` files,
   `build_runner`, and what the generated code actually contains.
