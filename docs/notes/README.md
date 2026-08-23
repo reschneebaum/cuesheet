@@ -56,6 +56,8 @@ Grouped by theme; populated as notes are written.
 ### Concurrency
 - [Streams](streams-vs-combine.md) — Combine and AsyncSequence rolled into one
   type, with single-subscription as the trap.
+- [Generators: `sync*` and `async*`](generators-sync-and-async.md) — writing a
+  sequence as a normal loop, which Swift cannot do.
 
 ### State management
 _(nothing yet)_
