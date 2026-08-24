@@ -7,6 +7,7 @@ library;
 export 'src/apply_intent.dart';
 export 'src/category.dart';
 export 'src/cuesheet.dart';
+export 'src/directory.dart';
 export 'src/episode.dart';
 export 'src/episode_filter.dart';
 export 'src/episode_view.dart';

@@ -17,6 +17,7 @@ export 'src/feed/parse_feed.dart';
 export 'src/feed/parsed_feed.dart';
 export 'src/feed/plain_text.dart';
 export 'src/filter_json.dart';
+export 'src/itunes_directory.dart';
 export 'src/filter_sql.dart';
 export 'src/mappers.dart';
 export 'src/normalize_url.dart';

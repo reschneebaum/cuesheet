@@ -45,6 +45,12 @@ difference and it makes Dart records useful in places Swift tuples cannot go.
 the convenience and also the cost — there is nowhere to write down what the
 fields mean. That is the line for reaching for a real class instead.
 
+**Named fields destructure by name, with a shorthand.** `final (:client,
+:requested) = serving(body);` binds two variables from a record's named fields,
+in any order, and `:client` is shorthand for `client: client`. Swift tuples
+destructure strictly positionally — labels annotate, they do not bind — so
+there is no equivalent to reordering or to naming only the fields you want.
+
 **No mutation, no `copyWith`.** Build a new one.
 
 ## Minimal example
@@ -64,3 +70,9 @@ print(divmod(17, 5) == (3, 2)); // true — structural equality
 - `packages/cuesheet_domain/lib/src/sort_spec.dart` — `_Ordering` is a
   `typedef` for a record, carrying a comparison result plus whether it came
   from a null-ordering decision (which must survive the descending flip).
+- `packages/cuesheet_data/lib/src/feed/feed_transport.dart` —
+  `FakeFeedTransport.requested` is a
+  `List<({Uri url, String? etag, String? lastModified})>`. A three-field type
+  used in one place, that tests read by name.
+- `packages/cuesheet_data/test/itunes_directory_test.dart` — `serving()` returns
+  a named record and every caller destructures it with the `:name` shorthand.

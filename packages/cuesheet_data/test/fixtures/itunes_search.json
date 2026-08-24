@@ -1,0 +1,59 @@
+{
+ "resultCount": 4,
+ "results": [
+  {
+   "wrapperType": "track",
+   "kind": "podcast",
+   "collectionId": 1441204101,
+   "trackId": 1441204101,
+   "artistName": "Wren Alvarez",
+   "collectionName": "The Cartographers",
+   "trackName": "The Cartographers",
+   "feedUrl": "https://feeds.cartographers.example/rss",
+   "trackViewUrl": "https://podcasts.apple.com/us/podcast/id1441204101",
+   "artworkUrl30": "https://is1.example/30x30bb.jpg",
+   "artworkUrl60": "https://is1.example/60x60bb.jpg",
+   "artworkUrl100": "https://is1.example/100x100bb.jpg",
+   "artworkUrl600": "https://is1.example/600x600bb.jpg",
+   "collectionExplicitness": "cleaned",
+   "trackCount": 214,
+   "country": "USA",
+   "primaryGenreName": "Science",
+   "releaseDate": "2025-06-10T09:00:00Z",
+   "genreIds": ["1533", "26"],
+   "genres": ["Science", "Podcasts"]
+  },
+  {
+   "wrapperType": "track",
+   "kind": "podcast",
+   "collectionId": 1000000002,
+   "artistName": "Nightshift Collective",
+   "collectionName": "Nightshift Radio",
+   "artworkUrl100": "https://is2.example/100x100bb.jpg",
+   "trackCount": 12,
+   "primaryGenreName": "Music",
+   "releaseDate": "2024-11-02T00:00:00Z",
+   "comment": "no feedUrl: pulled from distribution, nothing to subscribe to"
+  },
+  {
+   "wrapperType": "track",
+   "kind": "podcast",
+   "collectionId": 1000000003,
+   "artistName": "Jo & Ray",
+   "collectionName": "Ampersand & Co",
+   "feedUrl": "https://amp.example/feed.xml",
+   "artworkUrl60": "https://is3.example/60x60bb.jpg",
+   "primaryGenreName": "Comedy",
+   "releaseDate": "not a date",
+   "comment": "no 600 or 100 artwork, unparseable release date, no trackCount"
+  },
+  {
+   "wrapperType": "track",
+   "kind": "podcast",
+   "collectionId": 1000000004,
+   "feedUrl": "   ",
+   "collectionName": "Blank Feed URL",
+   "comment": "whitespace feedUrl is not a feedUrl"
+  }
+ ]
+}
