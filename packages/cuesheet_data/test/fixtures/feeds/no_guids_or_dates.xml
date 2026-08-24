@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Some feeds omit <guid> entirely, and some emit one that is empty. Both
+     must fall through to a later rung of the identity ladder (§6) rather than
+     matching each other on the empty string. Dates are absent or unreadable,
+     which the third rung then cannot use either. -->
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Nightshift Radio</title>
+    <item>
+      <title>Hour One</title>
+      <enclosure url="https://audio.nightshift.example/one.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Hour Two</title>
+      <guid></guid>
+      <pubDate></pubDate>
+      <enclosure url="https://audio.nightshift.example/two.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Hour Three</title>
+      <guid>   </guid>
+      <pubDate>whenever we got round to it</pubDate>
+      <enclosure url="https://audio.nightshift.example/three.mp3" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>

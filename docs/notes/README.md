@@ -52,6 +52,8 @@ Grouped by theme; populated as notes are written.
 - [Value equality, and the copyWith-null problem](value-equality-and-copywith.md)
   — why Dart needs `freezed`, and the collection-equality trap.
 - [Records](records.md) — Swift tuples, except they are `Equatable` for free.
+- [Strings: code units, runes, and characters](strings-and-runes.md) — the same
+  three views Swift has, with the safe one and the unsafe one swapped round.
 
 ### Concurrency
 - [Streams](streams-vs-combine.md) — Combine and AsyncSequence rolled into one

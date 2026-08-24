@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Markup and HTML entities in fields specified as plain text. The named
+     entities are undefined in XML, so the XML parser leaves them alone and
+     they arrive here as literal text; inside CDATA nothing is decoded at all.
+     Both paths appear below. -->
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Ampersand &amp; Co&nbsp;&mdash; The Show</title>
+    <itunes:author><![CDATA[<a href="https://x.example">Jo &amp; Ray</a>]]></itunes:author>
+    <description>Two people, one &amp;.</description>
+    <item>
+      <title><![CDATA[<b>Episode 1:</b> Don&rsquo;t Panic]]></title>
+      <guid>amp-1</guid>
+      <pubDate>Wed, 01 Jan 2025 12:00:00 +0000</pubDate>
+      <enclosure url="https://audio.amp.example/1.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Episode 2: &lt;b&gt;not actually bold&lt;/b&gt;</title>
+      <guid>amp-2</guid>
+      <pubDate>Wed, 08 Jan 2025 12:00:00 +0000</pubDate>
+      <description><![CDATA[<p>Line one.</p><p>Line two.</p>]]></description>
+      <enclosure url="https://audio.amp.example/2.mp3" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>

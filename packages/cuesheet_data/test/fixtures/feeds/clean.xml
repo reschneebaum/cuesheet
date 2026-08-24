@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A feed with nothing wrong with it. The baseline the other fixtures
+     deviate from, one pathology at a time. -->
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>The Cartographers</title>
+    <link>https://cartographers.example/</link>
+    <description>Conversations about maps.</description>
+    <itunes:author>Wren Alvarez</itunes:author>
+    <itunes:image href="https://cdn.cartographers.example/art/cover.jpg"/>
+    <item>
+      <title>The Mercator Problem</title>
+      <guid isPermaLink="false">cartographers-0042</guid>
+      <pubDate>Tue, 10 Jun 2025 09:00:00 GMT</pubDate>
+      <itunes:duration>01:02:03</itunes:duration>
+      <description>Why Greenland is a lie.</description>
+      <content:encoded><![CDATA[<p>Why <em>Greenland</em> is a lie.</p>]]></content:encoded>
+      <enclosure url="https://cdn.cartographers.example/audio/0042.mp3"
+                 length="59128320" type="audio/mpeg"/>
+      <itunes:image href="https://cdn.cartographers.example/art/0042.jpg"/>
+    </item>
+    <item>
+      <title>Contour Lines</title>
+      <guid isPermaLink="false">cartographers-0041</guid>
+      <pubDate>Tue, 3 Jun 2025 09:00:00 GMT</pubDate>
+      <itunes:duration>2715</itunes:duration>
+      <description>Reading elevation.</description>
+      <enclosure url="https://cdn.cartographers.example/audio/0041.mp3"
+                 length="43441152" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Projections, Briefly</title>
+      <guid isPermaLink="false">cartographers-0040</guid>
+      <pubDate>Tue, 27 May 2025 09:00:00 GMT</pubDate>
+      <itunes:duration>14:30</itunes:duration>
+      <enclosure url="https://cdn.cartographers.example/audio/0040.mp3"
+                 length="13920256" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>

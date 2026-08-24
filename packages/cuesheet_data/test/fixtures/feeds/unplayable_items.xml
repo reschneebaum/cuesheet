@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Three items, one playable via <enclosure>, one via <media:content>, and
+     two with no audio at all. feedPosition counts the dropped ones, so the
+     survivors keep the positions they had in the feed. -->
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Mixed Bag</title>
+    <item>
+      <title>Just a blog post</title>
+      <guid>mixed-0</guid>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Real Episode</title>
+      <guid>mixed-1</guid>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 GMT</pubDate>
+      <enclosure url="https://mixed.example/real.mp3" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Enclosure With No URL</title>
+      <guid>mixed-2</guid>
+      <enclosure length="0" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Media Content Only</title>
+      <guid>mixed-3</guid>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 GMT</pubDate>
+      <media:content url="https://mixed.example/media.m4a" type="audio/mp4"/>
+    </item>
+  </channel>
+</rss>

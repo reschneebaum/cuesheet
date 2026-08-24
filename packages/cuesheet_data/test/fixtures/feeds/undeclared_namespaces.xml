@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The itunes: prefix is used but never declared, which is malformed and
+     extremely common. A parser that resolves namespaces strictly loses every
+     duration in this feed. -->
+<rss version="2.0">
+  <channel>
+    <title>Unbound</title>
+    <itunes:author>Somebody</itunes:author>
+    <itunes:image href="https://unbound.example/cover.png"/>
+    <item>
+      <title>Prefix Soup</title>
+      <guid>unbound-1</guid>
+      <pubDate>Mon, 05 May 2025 07:30:00 -0400</pubDate>
+      <itunes:duration>44:10</itunes:duration>
+      <enclosure url="https://unbound.example/1.mp3" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>
