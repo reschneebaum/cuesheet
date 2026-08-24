@@ -576,3 +576,16 @@ Resolved since the first draft:
 
 - *Can saved smart lists pin a manual order?* No — sort-driven only, with
   materialization (§7, §8) as the escape hatch.
+- *Are orphaned episodes hidden from lists?* Not yet, and deliberately. §6 says
+  an orphan is hidden rather than deleted, but nothing in `EpisodeQuery`
+  excludes them and nothing will before Phase 5: while the app is a debug
+  harness, seeing what ingestion did to the library is the entire point, and an
+  orphan that silently vanishes from every list is exactly what makes an
+  ingestion bug hard to find. Rows carry an `ORPHANED` label instead.
+
+  The Phase 5 fix is not free and should be decided rather than defaulted: an
+  `includeOrphaned` flag on `EpisodeQuery` does not survive into `saved_filters`
+  (which serializes `filter_json` and `sort_json`, not the query), so either the
+  flag needs its own column or orphan-ness needs to enter the filter vocabulary
+  in §8 — and the vocabulary is meant to be about user-facing predicates, which
+  orphan-ness is not.
