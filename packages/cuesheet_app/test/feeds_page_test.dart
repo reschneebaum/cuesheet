@@ -2,6 +2,7 @@ import 'package:cuesheet_app/src/debug_app.dart';
 import 'package:cuesheet_app/src/providers.dart';
 import 'package:cuesheet_data/cuesheet_data.dart';
 import 'package:cuesheet_domain/cuesheet_domain.dart';
+import 'package:cuesheet_playback/cuesheet_playback.dart';
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,6 +31,7 @@ void main() {
   late CuesheetDatabase db;
   late FakeFeedTransport transport;
   late FakePodcastDirectory directory;
+  late FakeAudioEngine engine;
 
   Future<void> settle(WidgetTester tester) async {
     for (var i = 0; i < 10; i++) {
@@ -51,11 +53,13 @@ void main() {
       ),
     ]);
 
+    engine = FakeAudioEngine();
     await tester.pumpWidget(ProviderScope(
       overrides: [
         databaseProvider.overrideWithValue(db),
         feedTransportProvider.overrideWithValue(transport),
         podcastDirectoryProvider.overrideWithValue(directory),
+        audioEngineProvider.overrideWithValue(engine),
       ],
       child: const DebugApp(),
     ));
@@ -69,6 +73,10 @@ void main() {
     testWidgets(description, (tester) async {
       await body(tester);
       await tester.pumpWidget(const SizedBox.shrink());
+      // Closed here rather than in a tearDown, for the same reason the unmount
+      // is here: the database is closed after the body, and a still-open
+      // engine stream keeps a listener alive across that boundary.
+      await engine.dispose();
       await tester.pump(const Duration(milliseconds: 1));
     });
   }

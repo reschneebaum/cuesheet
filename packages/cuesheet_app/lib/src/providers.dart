@@ -1,5 +1,6 @@
 import 'package:cuesheet_data/cuesheet_data.dart';
 import 'package:cuesheet_domain/cuesheet_domain.dart';
+import 'package:cuesheet_playback/cuesheet_playback.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -48,6 +49,16 @@ final feedTransportProvider =
 
 final podcastDirectoryProvider =
     Provider<PodcastDirectory>((ref) => ITunesPodcastDirectory());
+
+/// Overridden with `FakeAudioEngine` in every widget test. Plugins do not work
+/// under `flutter test` at all — there is no engine and no channel to answer —
+/// so this override is not a convenience, it is the only way the app is
+/// testable. See `docs/notes/plugins-and-platform-channels.md`.
+final audioEngineProvider = Provider<AudioEngine>((ref) {
+  final engine = JustAudioEngine();
+  ref.onDispose(engine.dispose);
+  return engine;
+});
 
 final feedIngestionProvider = Provider<FeedIngestion>((ref) => FeedIngestion(
       ref.watch(databaseProvider),
@@ -162,6 +173,13 @@ class IngestionLog extends Notifier<List<String>> {
 
 final ingestionLogProvider =
     NotifierProvider<IngestionLog, List<String>>(IngestionLog.new);
+
+/// The engine's own reports, for the transport bar.
+///
+/// A second listener on the same broadcast stream the controller uses — which
+/// is why `AudioEngine.ticks` is broadcast rather than single-subscription.
+final playbackTickProvider = StreamProvider<PlaybackTick>(
+    (ref) => ref.watch(audioEngineProvider).ticks);
 
 final queueProvider = StreamProvider<QueueState>(
     (ref) => ref.watch(cuesheetRepositoryProvider).watchQueue());

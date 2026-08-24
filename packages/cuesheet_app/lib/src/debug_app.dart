@@ -3,9 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'episodes_page.dart';
 import 'feeds_page.dart';
+import 'playback_controller.dart';
 import 'providers.dart';
 import 'queue_page.dart';
 import 'sample_data.dart';
+import 'transport_bar.dart';
 
 /// The deliberately ugly debug harness.
 ///
@@ -25,13 +27,42 @@ class DebugApp extends StatelessWidget {
       );
 }
 
-class _Home extends ConsumerWidget {
+class _Home extends ConsumerStatefulWidget {
   const _Home();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_Home> createState() => _HomeState();
+}
+
+class _HomeState extends ConsumerState<_Home> {
+  AppLifecycleListener? _lifecycle;
+
+  @override
+  void initState() {
+    super.initState();
+    // §9 lists backgrounding among the events that force a write, and it is
+    // the one no tick can report: the app is told it is going away, the engine
+    // is not. Nothing here relies on a clean termination, which is the point.
+    _lifecycle = AppLifecycleListener(
+      onInactive: () => ref.read(playbackControllerProvider).flush(),
+      onPause: () => ref.read(playbackControllerProvider).flush(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _lifecycle?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final episodeCount =
         ref.watch(episodeIndexProvider).value?.length ?? 0;
+
+    // Read eagerly so the controller is listening to ticks before the first
+    // one arrives. A provider nobody reads is a provider that was never built.
+    ref.watch(playbackControllerProvider);
 
     return DefaultTabController(
       length: 4,
@@ -56,12 +87,19 @@ class _Home extends ConsumerWidget {
             Tab(text: 'Feeds'),
           ]),
         ),
-        body: const TabBarView(children: [
-          EpisodesPage(),
-          QueuePage(),
-          SavedPage(),
-          FeedsPage(),
-        ]),
+        body: const Column(
+          children: [
+            Expanded(
+              child: TabBarView(children: [
+                EpisodesPage(),
+                QueuePage(),
+                SavedPage(),
+                FeedsPage(),
+              ]),
+            ),
+            TransportBar(),
+          ],
+        ),
       ),
     );
   }

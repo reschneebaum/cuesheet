@@ -1,4 +1,5 @@
 import 'package:cuesheet_data/cuesheet_data.dart';
+import 'package:cuesheet_playback/cuesheet_playback.dart';
 import 'package:cuesheet_app/src/debug_app.dart';
 import 'package:cuesheet_app/src/intent_menu.dart';
 import 'package:cuesheet_app/src/providers.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_test/flutter_test.dart';
 /// `overrides` entry is the payoff for wiring every dependency in one place.
 void main() {
   late CuesheetDatabase db;
+  late FakeAudioEngine engine;
 
   /// Bounded pumping instead of `pumpAndSettle`.
   ///
@@ -28,8 +30,15 @@ void main() {
   Future<void> pumpApp(WidgetTester tester) async {
     db = CuesheetDatabase(NativeDatabase.memory());
     addTearDown(db.close);
+    // Plugins do not work under `flutter test` — there is no engine and no
+    // channel to answer — so the fake is not a convenience here, it is the
+    // only way the app runs at all.
+    engine = FakeAudioEngine();
     await tester.pumpWidget(ProviderScope(
-      overrides: [databaseProvider.overrideWithValue(db)],
+      overrides: [
+        databaseProvider.overrideWithValue(db),
+        audioEngineProvider.overrideWithValue(engine),
+      ],
       child: const DebugApp(),
     ));
     await settle(tester);
@@ -56,6 +65,10 @@ void main() {
     testWidgets(description, (tester) async {
       await body(tester);
       await tester.pumpWidget(const SizedBox.shrink());
+      // Closed here rather than in a tearDown, for the same reason the unmount
+      // is here: the database is closed after the body, and a still-open
+      // engine stream keeps a listener alive across that boundary.
+      await engine.dispose();
       // A duration, not a bare pump: `pump()` with no argument schedules a
       // frame without advancing the fake clock, so a Timer(Duration.zero)
       // never comes due.

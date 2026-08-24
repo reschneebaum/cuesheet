@@ -1,6 +1,7 @@
 import 'package:cuesheet_domain/cuesheet_domain.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'playback_controller.dart';
 import 'providers.dart';
 
 /// The one path from a tap to a changed queue.
@@ -29,6 +30,10 @@ class QueueActions {
     if (!result.changed) return;
 
     _ref.read(undoStackProvider.notifier).push(current);
+    // §9 forces a write on any queue mutation, before the queue changes under
+    // the playhead. An intent can move, replace or detach what is playing, and
+    // the position belongs to the episode it was measured against.
+    await _ref.read(playbackControllerProvider).flush();
     await repository.saveQueue(result.state, displaced: result.displaced);
   }
 
@@ -51,8 +56,11 @@ class QueueActions {
       _ref.read(cuesheetRepositoryProvider).save(
           cuesheet.copyWith(kind: CuesheetKind.saved, title: title));
 
-  /// Stand-in for playback, which does not exist until Phase 4. Advances the
-  /// playhead so the listening-state rules can be exercised by hand.
+  /// Moves the playhead by hand.
+  ///
+  /// Kept now that real playback exists: it is still the fastest way to put an
+  /// episode at an arbitrary point without listening to it, which the
+  /// listening-state rules need in order to be exercised at all.
   /// Named to avoid shadowing the domain's `advance`, which it calls.
   Future<void> advancePlayhead(EpisodeView view, Duration by) async {
     final listening = _ref.read(listeningRepositoryProvider);
