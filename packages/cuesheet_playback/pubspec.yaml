@@ -1,0 +1,25 @@
+name: cuesheet_playback
+description: >-
+  Audio for Cuesheet. Implements the AudioEngine interface declared by
+  cuesheet_domain over just_audio, and ships the fake the rest of the project
+  tests against. Deliberately the thinnest package here: it is the only one
+  that cannot be verified without a device.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.11.4
+
+resolution: workspace
+
+dependencies:
+  cuesheet_domain:
+    path: ../cuesheet_domain
+  flutter:
+    sdk: flutter
+  just_audio: ^0.10.6
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

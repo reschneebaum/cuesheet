@@ -74,6 +74,11 @@ _(nothing yet)_
   `pumpAndSettle` vs infinite animations, `pump()` not advancing the clock, and
   teardown ordering.
 
+### Platform integration
+- [Plugins and platform channels](plugins-and-platform-channels.md) — not
+  `import AVFoundation`; message passing to something outside your address
+  space, and why exactly one package here cannot be unit-tested.
+
 ### Tooling and build
 - [freezed and code generation](freezed-and-code-generation.md) — `part` files,
   `build_runner`, and what the generated code actually contains.
