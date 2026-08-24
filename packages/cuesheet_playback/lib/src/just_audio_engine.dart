@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cuesheet_domain/cuesheet_domain.dart';
 import 'package:just_audio/just_audio.dart' as ja;
+import 'package:just_audio_background/just_audio_background.dart';
 
 /// [AudioEngine] over `just_audio`.
 ///
@@ -87,7 +88,23 @@ class JustAudioEngine implements AudioEngine {
     _duration = audio.duration;
 
     await _player.setAudioSource(
-      ja.AudioSource.uri(audio.url),
+      ja.AudioSource.uri(
+        audio.url,
+        // What the lock screen shows. `just_audio_background` reads this tag
+        // off the source, which is why `EpisodeAudio` carries display metadata
+        // at all — there is no second chance to supply it, and reaching back
+        // into the database from here would point a dependency arrow the wrong
+        // way (§3).
+        tag: MediaItem(
+          // Our own id, not the URL: the now-playing item stays traceable back
+          // to a row even after a feed rewrites its enclosures (§6).
+          id: audio.id.value,
+          title: audio.title,
+          album: audio.podcastTitle,
+          artUri: audio.artworkUrl,
+          duration: audio.duration,
+        ),
+      ),
       initialPosition: startAt,
     );
   }

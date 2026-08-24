@@ -472,6 +472,25 @@ less control over the lock-screen surface. **Revisit point:** graduating to
 happens, the queue of record remains the database and the background handler
 reads through the same repositories rather than holding its own copy.
 
+Two things about `just_audio_background` that were not obvious when this was
+written:
+
+It is **not a plugin**. It declares no platforms of its own and is pure Dart
+over `audio_service`, which is the plugin and which supports macOS. So it
+initialises on the desktop harness as well as on the phone, and the same
+now-playing surface can be exercised in the loop that is already open rather
+than only on a device. Initialisation is therefore unconditional, and wrapped
+in a `try` — it is the one call in the app that can fail for reasons that have
+nothing to do with the app, and losing the lock screen is a bad afternoon while
+a launch that dies before the first frame is a black window.
+
+**The lock screen cannot offer "next episode".** The engine loads one source at
+a time, deliberately: §11's own rule is that the queue of record is the
+database, not a copy held inside the player. `just_audio_background` derives
+its now-playing item from the player's sequence, so a single-item sequence has
+nothing to skip to. Play, pause and seek work; next and previous do not. This
+is the first concrete thing the revisit point above is for.
+
 Tests use a `FakeAudioEngine` with a manually advanced clock. This layer is the
 least unit-testable in the project, which is exactly why it is the thinnest and
 sits behind an interface.
@@ -537,7 +556,7 @@ Front-load what is testable; defer what is not.
 | 1 | `cuesheet_domain`, test-first. Intent algebra, filter vocabulary, listening-state semantics. No Flutter, no DB, no audio. **Done** — 204 tests. |
 | 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **Done** — schema, filter/sort compilation, all six repositories (118 tests), and the debug harness in `cuesheet_app` (7 widget tests). |
 | 3 | Feed ingestion and directory search, fixture-driven. **Done** — RSS parsing and normalizers, §6's identity ladder, conditional fetch and charset handling, ingestion with orphan policy, the iTunes directory client, a real-feed corpus, and a Feeds tab in the debug harness (277 tests in `cuesheet_data`, 17 widget). |
-| 4 | `cuesheet_playback`. Real devices enter the picture. |
+| 4 | `cuesheet_playback`. Real devices enter the picture. **Done** — the audio boundary, `onTick` as the pure decision function, the just_audio adapter, the coordinator, real transport controls, and background audio with lock-screen metadata. Verified on macOS; an iOS device pass is still outstanding. |
 | 5 | `cuesheet_ui` and `cuesheet_app`. By now the engine works; the UI is a thin reactive skin. |
 
 A deliberately ugly debug UI lands at the end of Phase 2 — lists and buttons, no

@@ -19,7 +19,7 @@ features and aren't built as such.
 
 ## Status
 
-Early. Phase 3 of 5 complete.
+Early. Phase 4 of 5 complete.
 
 | Phase | | |
 |---|---|---|
@@ -27,13 +27,14 @@ Early. Phase 3 of 5 complete.
 | 1 | `cuesheet_domain` — pure Dart, test-first | done |
 | 2 | `cuesheet_data` — Drift schema, repositories | done |
 | 3 | Feed ingestion and directory search | done |
-| 4 | `cuesheet_playback` — audio | |
+| 4 | `cuesheet_playback` — audio | done |
 | 5 | `cuesheet_ui` / `cuesheet_app` | |
 
-The engine works: the intent algebra, filtering and sorting, listening-state
-semantics, persistence, and now real feeds going in one end and identified
-episodes coming out the other. Audio is next, and it is the first part that
-needs a device.
+The engine works, and it makes noise: the intent algebra, filtering and
+sorting, listening-state semantics, persistence, real feeds going in one end
+and identified episodes coming out the other, and audio with lock-screen
+controls. What is left is the part this project has been deferring on purpose —
+an actual interface.
 
 ## Why it's built this way
 
@@ -45,9 +46,10 @@ learn Flutter, rather than both at once, and by the time there's a UI the
 engine underneath it already works.
 
 A consequence worth naming: the app you can run is a deliberately ugly debug
-harness — lists and buttons, no design — which arrived at the end of Phase 2 and
-grew a Feeds tab in Phase 3. You can subscribe to a real podcast and watch what
-ingestion did to your library. You cannot yet play anything.
+harness — lists and buttons, no design — which arrived at the end of Phase 2,
+grew a Feeds tab in Phase 3 and transport controls in Phase 4. You can subscribe
+to a real podcast, watch what ingestion did to your library, and listen to it.
+It is not pleasant to look at, and that is still deliberate.
 
 ## Layout
 
@@ -58,7 +60,7 @@ which depends on no Flutter, no database, and no I/O.
 packages/
   cuesheet_domain/     entities, the playback intent algebra, filter vocabulary
   cuesheet_data/       Drift schema, repositories, feed parsing, search
-  cuesheet_playback/   just_audio, behind interfaces the domain owns         (todo)
+  cuesheet_playback/   just_audio, behind interfaces the domain owns
   cuesheet_ui/         design tokens and components                          (todo)
   cuesheet_app/        the Flutter app; Riverpod wiring lives here           (todo)
 ```
@@ -69,9 +71,10 @@ Flutter is pinned with [fvm](https://fvm.app) via `.fvmrc` (3.41.6 / Dart 3.11.4
 
 ```sh
 dart pub get
-cd packages/cuesheet_domain && dart test   # 204
+cd packages/cuesheet_domain && dart test   # 227
 cd ../cuesheet_data && dart test           # 277
-cd ../cuesheet_app && flutter test         # 17
+cd ../cuesheet_playback && flutter test    # 10
+cd ../cuesheet_app && flutter test         # 35
 ```
 
 The domain suite needs no simulator, no database, and no audio session. The
