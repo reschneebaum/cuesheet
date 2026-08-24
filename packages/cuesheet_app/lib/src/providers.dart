@@ -38,6 +38,24 @@ final savedFilterRepositoryProvider = Provider<SavedFilterRepository>(
     (ref) => DriftSavedFilterRepository(ref.watch(databaseProvider)));
 
 // ---------------------------------------------------------------------------
+// Ingestion and search
+// ---------------------------------------------------------------------------
+
+/// Overridden in tests with `FakeFeedTransport`, which is the only reason no
+/// widget test in this package touches the network.
+final feedTransportProvider =
+    Provider<FeedTransport>((ref) => HttpFeedTransport());
+
+final podcastDirectoryProvider =
+    Provider<PodcastDirectory>((ref) => ITunesPodcastDirectory());
+
+final feedIngestionProvider = Provider<FeedIngestion>((ref) => FeedIngestion(
+      ref.watch(databaseProvider),
+      transport: ref.watch(feedTransportProvider),
+      clock: ref.watch(clockProvider),
+    ));
+
+// ---------------------------------------------------------------------------
 // Reactive state
 // ---------------------------------------------------------------------------
 
@@ -62,6 +80,47 @@ final episodeIndexProvider =
         .watch(episodeRepositoryProvider)
         .watch(const EpisodeQuery(sort: []))
         .map((all) => {for (final v in all) v.episode.id: v}));
+
+final podcastsProvider = StreamProvider<List<Podcast>>(
+    (ref) => ref.watch(podcastRepositoryProvider).watchAll());
+
+/// The query the directory has actually been asked for, as opposed to what is
+/// currently in the text field. Searching on every keystroke would be one
+/// network round trip per character.
+class DirectoryQuery extends Notifier<String> {
+  @override
+  String build() => '';
+
+  void submit(String query) => state = query.trim();
+}
+
+final directoryQueryProvider =
+    NotifierProvider<DirectoryQuery, String>(DirectoryQuery.new);
+
+final directoryResultsProvider =
+    FutureProvider<List<DirectoryResult>>((ref) async {
+  final query = ref.watch(directoryQueryProvider);
+  if (query.isEmpty) return const [];
+  return ref.watch(podcastDirectoryProvider).search(query);
+});
+
+/// What the last few refreshes did, newest first.
+///
+/// The whole point of the harness: an ingestion that quietly orphans six
+/// episodes should say so somewhere a human can read it.
+class IngestionLog extends Notifier<List<String>> {
+  static const int _depth = 30;
+
+  @override
+  List<String> build() => const [];
+
+  void add(String line) => state = [line, ...state].take(_depth).toList();
+
+  void clear() => state = const [];
+}
+
+final ingestionLogProvider =
+    NotifierProvider<IngestionLog, List<String>>(IngestionLog.new);
 
 final queueProvider = StreamProvider<QueueState>(
     (ref) => ref.watch(cuesheetRepositoryProvider).watchQueue());

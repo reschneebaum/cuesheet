@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'episodes_page.dart';
+import 'feeds_page.dart';
 import 'providers.dart';
 import 'queue_page.dart';
 import 'sample_data.dart';
 
-/// Phase 2's deliberately ugly debug harness.
+/// The deliberately ugly debug harness.
 ///
 /// No design, no theming, no layout work. It exists so the engine underneath
-/// can be driven by hand — and so that the intent algebra, the filter
-/// vocabulary, and queue persistence can be seen working before any of them
-/// are dressed up. Phase 5 replaces this wholesale.
+/// can be driven by hand — the intent algebra, the filter vocabulary and queue
+/// persistence from Phase 2, and from Phase 3 the ability to point ingestion
+/// at a real feed and read back exactly what it did. Phase 5 replaces this
+/// wholesale.
 class DebugApp extends StatelessWidget {
   const DebugApp({super.key});
 
@@ -32,7 +34,7 @@ class _Home extends ConsumerWidget {
         ref.watch(episodeIndexProvider).value?.length ?? 0;
 
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Cuesheet debug · $episodeCount episodes'),
@@ -51,12 +53,14 @@ class _Home extends ConsumerWidget {
             Tab(text: 'Episodes'),
             Tab(text: 'Queue'),
             Tab(text: 'Saved'),
+            Tab(text: 'Feeds'),
           ]),
         ),
         body: const TabBarView(children: [
           EpisodesPage(),
           QueuePage(),
           SavedPage(),
+          FeedsPage(),
         ]),
       ),
     );

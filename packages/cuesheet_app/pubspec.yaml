@@ -1,6 +1,6 @@
 name: cuesheet_app
 description: >-
-  The Cuesheet app. During Phase 2 this is a deliberately ugly debug harness:
+  The Cuesheet app. Until Phase 5 this is a deliberately ugly debug harness:
   lists, buttons, and no design at all, existing so the engine underneath can
   be driven by hand long before there is a real interface.
 publish_to: none

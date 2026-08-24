@@ -103,8 +103,15 @@ class HttpFeedTransport implements FeedTransport {
 /// to drive ingestion against the fixture corpus with no network, which is the
 /// same thing the tests want.
 class FakeFeedTransport implements FeedTransport {
-  FakeFeedTransport(this.bodies, {this.etags = const {}});
+  FakeFeedTransport(
+    Map<String, String> bodies, {
+    Map<String, String> etags = const {},
+  })  : bodies = {...bodies},
+        etags = {...etags};
 
+  /// Copied rather than held, so both stay mutable however they were passed.
+  /// A fake you cannot reconfigure between the two halves of a test — serve
+  /// this, now serve that — is not much of a fake.
   final Map<String, String> bodies;
   final Map<String, String> etags;
 
