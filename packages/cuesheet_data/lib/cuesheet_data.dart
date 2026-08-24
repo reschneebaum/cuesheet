@@ -7,9 +7,12 @@
 library;
 
 export 'src/database.dart';
+export 'src/feed/decode_body.dart';
 export 'src/feed/feed_dates.dart';
 export 'src/feed/feed_duration.dart';
 export 'src/feed/match_episodes.dart';
+export 'src/feed/feed_transport.dart';
+export 'src/feed/ingestion.dart';
 export 'src/feed/parse_feed.dart';
 export 'src/feed/parsed_feed.dart';
 export 'src/feed/plain_text.dart';

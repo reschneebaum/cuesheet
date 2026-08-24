@@ -60,6 +60,8 @@ Grouped by theme; populated as notes are written.
   type, with single-subscription as the trap.
 - [Generators: `sync*` and `async*`](generators-sync-and-async.md) — writing a
   sequence as a normal loop, which Swift cannot do.
+- [Futures and `async`/`await`](futures-and-async.md) — the same keywords, with
+  no cancellation, no structured concurrency, and no actors underneath them.
 
 ### State management
 _(nothing yet)_
