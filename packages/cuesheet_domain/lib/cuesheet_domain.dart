@@ -5,6 +5,7 @@
 library;
 
 export 'src/apply_intent.dart';
+export 'src/audio_engine.dart';
 export 'src/category.dart';
 export 'src/cuesheet.dart';
 export 'src/directory.dart';
@@ -15,6 +16,7 @@ export 'src/ids.dart';
 export 'src/listening.dart';
 export 'src/listening_state.dart';
 export 'src/podcast.dart';
+export 'src/playback.dart';
 export 'src/playback_intent.dart';
 export 'src/preview_intent.dart';
 export 'src/queue_state.dart';
