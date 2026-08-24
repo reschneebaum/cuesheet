@@ -1,6 +1,6 @@
 # Cuesheet — Architecture
 
-Status: draft, v1 planning. Last revised 2026-08-22.
+Status: draft, v1 planning. Last revised 2026-08-24.
 
 ## 1. What Cuesheet is
 
@@ -235,15 +235,32 @@ up months later as "why does this say unplayed?"
 3. Matching an incoming feed item to an existing row walks an ordered ladder,
    stopping at the first hit:
    1. `guid`, trimmed
-   2. normalized enclosure URL — lowercased host, known tracking prefixes
-      stripped, denylisted query parameters removed
-   3. title + publication date to day resolution
+   2. normalized enclosure URL — analytics wrappers unwrapped by known host,
+      lowercased, denylisted query parameters removed (§12)
+   3. title + publication date to day resolution. Both halves required: title
+      alone would be catastrophic on the feeds that most need a third rung,
+      since "Episode 42", "Bonus" and "Introduction" recur.
+
+   An existing row is claimed by **at most one** incoming item. A feed that
+   republishes an episode under a new guid while leaving the old item in place
+   would otherwise merge two episodes into one and give the survivor the
+   other's listening history; instead the second item falls to the next rung,
+   and to a new row if nothing fits.
 4. The rung that matched is stored on the row. When identity bugs surface, the
    first question is always "how did this match?", and the answer should be in
    the database rather than reconstructed.
 5. An episode that disappears from its feed and **has listening history is never
    deleted** — it is marked orphaned. Feeds routinely trim to a rolling window;
-   that must not erase what you listened to.
+   that must not erase what you listened to. Widened in Phase 3 to cover
+   anything the user authored: an episode sitting in a cuesheet, or filed under
+   a category, is orphaned rather than deleted for the same reason. Letting a
+   feed's rolling window cascade an item out of a saved queue is the exact loss
+   §5.4 exists to refuse. An episode the user has never touched is still
+   deleted, and a listening row with nothing in it is not history.
+6. The rung stored on the row is the **most recent** match, answering "how is
+   this row attached to that item now?". The more interesting event — a refresh
+   where the rungs shift, because a feed rewrote its guids overnight — is
+   reported as a histogram on the ingestion result, at the moment it happens.
 
 ## 7. Cuesheets
 
@@ -461,11 +478,29 @@ sits behind an interface.
 
 ## 12. Ingestion and search
 
-**Feed ingestion.** Fetch with `etag` / `last_modified` conditional requests.
-Parse RSS 2.0 with the iTunes and Podcast Index namespaces. Real feeds are
-malformed in creative ways: missing durations, HTML in supposedly plain fields,
-inconsistent date formats, absent GUIDs. Normalization is a domain concern and
-gets its own test fixtures (§13).
+**Feed ingestion.** Fetch with `etag` / `last_modified` conditional requests —
+and treat both as optional, because Megaphone sends only the latter. Parse
+RSS 2.0 with the iTunes, Media RSS, Dublin Core and content namespaces, matching
+elements on local name *and* prefix rather than on resolved namespace URI: feeds
+use `itunes:` without declaring it often enough that strict resolution silently
+loses durations. Real feeds are malformed in creative ways: missing durations,
+HTML in supposedly plain fields, inconsistent date formats, absent GUIDs.
+Normalization gets its own test fixtures (§13).
+
+Bytes are decoded the way XML says to rather than the way HTTP says to — BOM,
+then the declaration's `encoding`, then the transport charset. Feeds served as
+`application/xml` with no charset are routine, and the default HTTP fallback for
+those is Latin-1.
+
+**Enclosure URL normalization** unwraps analytics redirects by matching a list
+of known wrapper **hosts**, not path prefixes. Prefix matching is what the first
+draft did, and the real corpus broke it twice over: the plumbing between wrapper
+and payload varies, and `traffic.megaphone.fm/` is an *origin* host that a prefix
+list happily mistook for a wrapper, destroying every Megaphone URL. Getting this
+backwards is asymmetric — an unrecognised wrapper only costs rung 2 its
+stability and falls through to rung 3, while re-rooting a URL that was never
+wrapped invents an identity. Nothing is unwrapped unless its host is on the
+list.
 
 **Directory search.** Behind an interface:
 
@@ -488,7 +523,7 @@ cheapest to run.
 |---|---|
 | `cuesheet_domain` | `package:test`. Pure functions, no mocks needed. Target 100% — it is achievable here and nowhere else. |
 | `cuesheet_data` | `package:test` against `NativeDatabase.memory()` — real schema, real SQL, still fast. The package turned out to need no Flutter dependency at all: a Flutter host supplies the native SQLite binaries, so the data layer stays pure Dart and its tests stay quick. Plus explicit migration tests once there is a second schema version. |
-| Feed parsing | Fixture corpus of deliberately ugly real-world feeds in `test/fixtures/feeds/`, harvested from actual subscriptions. |
+| Feed parsing | Two fixture corpora. `test/fixtures/feeds/` holds small hand-authored files, each named for the single pathology it encodes, so a failure names its own cause. `test/fixtures/feeds/real/` holds four feeds captured verbatim from actual subscriptions, which is where the pathologies nobody thought of live — it found two real identity bugs on its first run. See that directory's README. |
 | `cuesheet_playback` | `FakeAudioEngine` for the seams; real verification is manual, on device. |
 | `cuesheet_app` | Widget tests asserting **intent affordances** against the real stack — real widgets, real repositories, real SQLite — with only the database swapped for an in-memory one. One `overrides:` entry is the whole substitution, which is the payoff for wiring every dependency in one place. They assert the things the app exists for: that "play just this" leaves the queue untouched, that a replaced queue stays recoverable, and that a control which will do nothing says so rather than lying. See [widget-test-traps](notes/widget-test-traps.md) for the fake-clock hazards. |
 
@@ -501,7 +536,7 @@ Front-load what is testable; defer what is not.
 | 0 | This document. Scope and architecture settled. |
 | 1 | `cuesheet_domain`, test-first. Intent algebra, filter vocabulary, listening-state semantics. No Flutter, no DB, no audio. **Done** — 204 tests. |
 | 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **Done** — schema, filter/sort compilation, all six repositories (118 tests), and the debug harness in `cuesheet_app` (7 widget tests). |
-| 3 | Feed ingestion and directory search, fixture-driven. |
+| 3 | Feed ingestion and directory search, fixture-driven. **Done** — RSS parsing and normalizers, §6's identity ladder, conditional fetch and charset handling, ingestion with orphan policy, the iTunes directory client, a real-feed corpus, and a Feeds tab in the debug harness (277 tests in `cuesheet_data`, 17 widget). |
 | 4 | `cuesheet_playback`. Real devices enter the picture. |
 | 5 | `cuesheet_ui` and `cuesheet_app`. By now the engine works; the UI is a thin reactive skin. |
 

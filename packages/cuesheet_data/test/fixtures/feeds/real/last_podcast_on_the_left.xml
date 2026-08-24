@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  REAL FEED, CAPTURED VERBATIM. Do not tidy.
+  Everything wrong with it is the point.
+
+  Captured 2026-08-24 from https://feeds.simplecast.com/dCXMIpJz
+  Content-Type: application/xml
+  ETag: "d8fbc2847495f95802c9a09ab85af67b"
+  Last-Modified: Sat, 22 Aug 2026 03:50:41 GMT
+  Original: 1196 items, 5,355,117 bytes.
+  Trimmed: newest 12 and oldest 12 items kept, 1172 elided.
+-->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <atom:link href="https://feeds.simplecast.com/dCXMIpJz" rel="self" title="MP3 Audio" type="application/atom+xml"/>
+    <atom:link href="https://simplecast.superfeedr.com" rel="hub" xmlns="http://www.w3.org/2005/Atom"/>
+    <generator>https://simplecast.com</generator>
+    <title>Last Podcast On The Left</title>
+    <description>The Last Podcast on the Left covers all the horrors our world has to offer, both imagined and real. From demons and slashers to cults and serial killers, The Last Podcast is guaranteed to satisfy your bloodlust.
+
+Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting siriusxm.com/podcastsplus.</description>
+    <language>en</language>
+    <pubDate>Fri, 21 Aug 2026 07:00:00 +0000</pubDate>
+    <lastBuildDate>Sat, 22 Aug 2026 03:50:25 +0000</lastBuildDate>
+    <image>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <title>Last Podcast On The Left</title>
+      <url>https://image.simplecastcdn.com/images/ed690658-5134-4e0f-a182-d5f7077190df/15517248-c1d6-4bc1-bbb2-724466575185/3000x3000/lpotl-logo.jpg?aid=rss_feed</url>
+    </image>
+    <link>https://www.lastpodcastnetwork.com</link>
+    <itunes:type>episodic</itunes:type>
+    <itunes:summary>The Last Podcast on the Left covers all the horrors our world has to offer, both imagined and real. From demons and slashers to cults and serial killers, The Last Podcast is guaranteed to satisfy your bloodlust.
+
+Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting siriusxm.com/podcastsplus.</itunes:summary>
+    <itunes:author>The Last Podcast Network</itunes:author>
+    <itunes:explicit>true</itunes:explicit>
+    <itunes:image href="https://image.simplecastcdn.com/images/ed690658-5134-4e0f-a182-d5f7077190df/15517248-c1d6-4bc1-bbb2-724466575185/3000x3000/lpotl-logo.jpg?aid=rss_feed"/>
+    <itunes:new-feed-url>https://feeds.simplecast.com/dCXMIpJz</itunes:new-feed-url>
+    <itunes:owner>
+      <itunes:name>The Last Podcast Network</itunes:name>
+      <itunes:email>thelastpodcastnetwork@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:category text="True Crime"/>
+    <itunes:category text="Comedy"/>
+    <itunes:category text="Society &amp; Culture"/>
+    <item>
+      <guid isPermaLink="false">6deb792b-5a0e-4de8-baee-22197f0724ac</guid>
+      <title>Episode 678: My Lai Massacre Part III - Murder Dressed Up as Victory</title>
+      <description><![CDATA[<p>The road to My Lai enters its final stretch as the Tet Offensive leaves the American military desperate for a win and willing to count any Vietnamese body as Viet Cong. Along the way, the boys get into Project 100,000, Task Force Barker, “Mad Dog” Medina, and the dangerously incompetent Lieutenant William Calley before Charlie Company prepares to march into My Lai.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Fri, 21 Aug 2026 07:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The road to My Lai enters its final stretch as the Tet Offensive leaves the American military desperate for a win and willing to count any Vietnamese body as Viet Cong. Along the way, the boys get into Project 100,000, Task Force Barker, “Mad Dog” Medina, and the dangerously incompetent Lieutenant William Calley before Charlie Company prepares to march into My Lai.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="109392460" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/f1d378f6-1e6f-4422-9cbb-326f65e51edf/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=f1d378f6-1e6f-4422-9cbb-326f65e51edf&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 678: My Lai Massacre Part III - Murder Dressed Up as Victory</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:duration>01:53:56</itunes:duration>
+      <itunes:summary>The road to My Lai enters its final stretch as the Tet Offensive leaves the American military desperate for a win and willing to count any Vietnamese body as Viet Cong. Along the way, the boys get into Project 100,000, Task Force Barker, “Mad Dog” Medina, and the dangerously incompetent Lieutenant William Calley before Charlie Company prepares to march into My Lai.</itunes:summary>
+      <itunes:subtitle>The road to My Lai enters its final stretch as the Tet Offensive leaves the American military desperate for a win and willing to count any Vietnamese body as Viet Cong. Along the way, the boys get into Project 100,000, Task Force Barker, “Mad Dog” Medina, and the dangerously incompetent Lieutenant William Calley before Charlie Company prepares to march into My Lai.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1209</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">f2ebad0c-497b-4aba-b2dd-4539348713b9</guid>
+      <title>Side Stories: True Crime Trial Update - Summer 2026</title>
+      <description><![CDATA[<p>Court is back in session as Henry and Ed catch up on the cases that refuse to stay quiet: the Lindsay Clancy trial and the failures surrounding postpartum psychosis, Bryan Kohberger’s attempt to withdraw his guilty plea, Keefe D finally facing the music for Tupac’s murder, and the latest on D4vd, Nick Reiner, and Luigi Mangione.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Wed, 19 Aug 2026 19:07:20 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Court is back in session as Henry and Ed catch up on the cases that refuse to stay quiet: the Lindsay Clancy trial and the failures surrounding postpartum psychosis, Bryan Kohberger’s attempt to withdraw his guilty plea, Keefe D finally facing the music for Tupac’s murder, and the latest on D4vd, Nick Reiner, and Luigi Mangione.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="64275020" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/34b39ba1-db2d-4090-a656-388824a28ff0/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=34b39ba1-db2d-4090-a656-388824a28ff0&amp;feed=dCXMIpJz"/>
+      <itunes:title>Side Stories: True Crime Trial Update - Summer 2026</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/dbb226d0-49fc-45bb-b070-10bf50435979/b10a7d2a-23c1-4e0a-9119-d89205157212/3000x3000/sidestorieslogo_hires.jpg?aid=rss_feed"/>
+      <itunes:duration>01:06:56</itunes:duration>
+      <itunes:summary>Court is back in session as Henry and Ed catch up on the cases that refuse to stay quiet: the Lindsay Clancy trial and the failures surrounding postpartum psychosis, Bryan Kohberger’s attempt to withdraw his guilty plea, Keefe D finally facing the music for Tupac’s murder, and the latest on D4vd, Nick Reiner, and Luigi Mangione. </itunes:summary>
+      <itunes:subtitle>Court is back in session as Henry and Ed catch up on the cases that refuse to stay quiet: the Lindsay Clancy trial and the failures surrounding postpartum psychosis, Bryan Kohberger’s attempt to withdraw his guilty plea, Keefe D finally facing the music for Tupac’s murder, and the latest on D4vd, Nick Reiner, and Luigi Mangione. </itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1211</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">8bcc9133-22ad-485c-93b3-4f5c92bf52c6</guid>
+      <title>Episode 677: My Lai Massacre Part II - Ain’t No Daylight in Vietnam</title>
+      <description><![CDATA[<p>This week, the march toward My Lai continues as America sinks deeper into Vietnam, from JFK and the Gulf of Tonkin to LBJ’s escalation of the war, the rise of body counts, and the growing brutality that helped create the conditions for a massacre... As LBJ himself put it, "there ain’t no daylight in Vietnam".</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Fri, 14 Aug 2026 07:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>This week, the march toward My Lai continues as America sinks deeper into Vietnam, from JFK and the Gulf of Tonkin to LBJ’s escalation of the war, the rise of body counts, and the growing brutality that helped create the conditions for a massacre... As LBJ himself put it, "there ain’t no daylight in Vietnam".</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="117135990" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/85163274-c328-47c2-a607-a376d9fe577a/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=85163274-c328-47c2-a607-a376d9fe577a&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 677: My Lai Massacre Part II - Ain’t No Daylight in Vietnam</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:duration>02:02:00</itunes:duration>
+      <itunes:summary>This week, the march toward My Lai continues as America sinks deeper into Vietnam, from JFK and the Gulf of Tonkin to LBJ’s escalation of the war, the rise of body counts, and the growing brutality that helped create the conditions for a massacre... As LBJ himself put it, &quot;there ain’t no daylight in Vietnam&quot;.</itunes:summary>
+      <itunes:subtitle>This week, the march toward My Lai continues as America sinks deeper into Vietnam, from JFK and the Gulf of Tonkin to LBJ’s escalation of the war, the rise of body counts, and the growing brutality that helped create the conditions for a massacre... As LBJ himself put it, &quot;there ain’t no daylight in Vietnam&quot;.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1206</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">3aa7fe67-ed64-46b5-bb5a-cad93843fd7d</guid>
+      <title>Side Stories: The Grim Reaper Clause</title>
+      <description><![CDATA[<p>Henry & Eddie crawl out of Midsummer Scream with busted knees, empty wallets, and an irresponsible number of 4K DVDs... RFK Jr. sings the praises of the perfect shit, a hacky killer clown caught on RingCam bearing gifts, the Grim Reaper hit with charges after loitering outside UK hospital, Sinatra karaoke turns fatal, an Arkansas football player spends two hours sharing his helmet with a rattlesnake, Listener E-Mails, and MORE!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Wed, 12 Aug 2026 19:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Henry & Eddie crawl out of Midsummer Scream with busted knees, empty wallets, and an irresponsible number of 4K DVDs... RFK Jr. sings the praises of the perfect shit, a hacky killer clown caught on RingCam bearing gifts, the Grim Reaper hit with charges after loitering outside UK hospital, Sinatra karaoke turns fatal, an Arkansas football player spends two hours sharing his helmet with a rattlesnake, Listener E-Mails, and MORE!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="70382240" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/a6d17ded-4b89-4788-962a-60808e345eb9/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=a6d17ded-4b89-4788-962a-60808e345eb9&amp;feed=dCXMIpJz"/>
+      <itunes:title>Side Stories: The Grim Reaper Clause</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/dbb226d0-49fc-45bb-b070-10bf50435979/220598e8-0e73-4fbf-be74-4fd4289c8907/3000x3000/sidestorieslogo_hires.jpg?aid=rss_feed"/>
+      <itunes:duration>01:13:18</itunes:duration>
+      <itunes:summary>Henry &amp; Eddie crawl out of Midsummer Scream with busted knees, empty wallets, and an irresponsible number of 4K DVDs... RFK Jr. sings the praises of the perfect shit, a hacky killer clown caught on RingCam bearing gifts, the Grim Reaper hit with charges after loitering outside UK hospital, Sinatra karaoke turns fatal, an Arkansas football player spends two hours sharing his helmet with a rattlesnake, Listener E-Mails, and MORE!</itunes:summary>
+      <itunes:subtitle>Henry &amp; Eddie crawl out of Midsummer Scream with busted knees, empty wallets, and an irresponsible number of 4K DVDs... RFK Jr. sings the praises of the perfect shit, a hacky killer clown caught on RingCam bearing gifts, the Grim Reaper hit with charges after loitering outside UK hospital, Sinatra karaoke turns fatal, an Arkansas football player spends two hours sharing his helmet with a rattlesnake, Listener E-Mails, and MORE!</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1208</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">5b0b55e2-f520-4d56-b19c-ed95b0d642b1</guid>
+      <title>Episode 676: My Lai Massacre Part I - Ho Money Ho Problems</title>
+      <description><![CDATA[<p>The boys are back as Marcus leads Henry and Ed into the first chapter of our My Lai Massacre series, tracing the long and bloody road that brought America into Vietnam. From French colonial rule and the rise of Ho Chi Minh to guerrilla warfare, Cold War paranoia, and one catastrophic decision after another, the boys break down how America stumbled into a war it never understood and could never win.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Fri, 7 Aug 2026 07:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys are back as Marcus leads Henry and Ed into the first chapter of our My Lai Massacre series, tracing the long and bloody road that brought America into Vietnam. From French colonial rule and the rise of Ho Chi Minh to guerrilla warfare, Cold War paranoia, and one catastrophic decision after another, the boys break down how America stumbled into a war it never understood and could never win.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="109499689" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/d5b53dde-5ed0-497d-8b18-b388bda687ba/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=d5b53dde-5ed0-497d-8b18-b388bda687ba&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 676: My Lai Massacre Part I - Ho Money Ho Problems</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:duration>01:54:03</itunes:duration>
+      <itunes:summary>The boys are back as Marcus leads Henry and Ed into the first chapter of the My Lai Massacre, tracing the long and bloody road that brought America into Vietnam. From French colonial rule and the rise of Ho Chi Minh to guerrilla warfare, Cold War paranoia, and one catastrophic decision after another, the boys break down how America stumbled into a war it never understood and could never win.
+</itunes:summary>
+      <itunes:subtitle>The boys are back as Marcus leads Henry and Ed into the first chapter of the My Lai Massacre, tracing the long and bloody road that brought America into Vietnam. From French colonial rule and the rise of Ho Chi Minh to guerrilla warfare, Cold War paranoia, and one catastrophic decision after another, the boys break down how America stumbled into a war it never understood and could never win.
+</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1203</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">55fb86cb-611b-4b15-af84-716bb09c72a4</guid>
+      <title>Side Stories: Nude Food</title>
+      <description><![CDATA[<p>Henry & Eddie bring you this week's wildest stories and craziest news - Mitch McConnell: DOA, "Daddy Daughter Dream Team" Rabbit Hole: the story of Patrick and Sarah Getchell, Miracle Baby arrested in Virginia shooting, the Florida Steakhouse offering a nude dining experience, Wisconsin man allegedly kills mother and covers mother in cat litter before setting corpse on fire, Indiana woman cuts out her father's heart, Colombian theater evacuated during ‘Spider-Man’ screening due to moviegoer’s uncontrollable bout of ‘rotten’ farts, Listener Mail, and MORE!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Wed, 5 Aug 2026 19:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Henry & Eddie bring you this week's wildest stories and craziest news - Mitch McConnell: DOA, "Daddy Daughter Dream Team" Rabbit Hole: the story of Patrick and Sarah Getchell, Miracle Baby arrested in Virginia shooting, the Florida Steakhouse offering a nude dining experience, Wisconsin man allegedly kills mother and covers mother in cat litter before setting corpse on fire, Indiana woman cuts out her father's heart, Colombian theater evacuated during ‘Spider-Man’ screening due to moviegoer’s uncontrollable bout of ‘rotten’ farts, Listener Mail, and MORE!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="62751977" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/755d2d50-f912-4df8-b8b4-ad1c55e76769/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=755d2d50-f912-4df8-b8b4-ad1c55e76769&amp;feed=dCXMIpJz"/>
+      <itunes:title>Side Stories: Nude Food</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/dbb226d0-49fc-45bb-b070-10bf50435979/b425be00-9ef3-4ce8-9e53-0b5fc9aa0bc4/3000x3000/sidestorieslogo_hires.jpg?aid=rss_feed"/>
+      <itunes:duration>01:05:21</itunes:duration>
+      <itunes:summary>Henry &amp; Eddie bring you this week&apos;s wildest stories and craziest news - Mitch McConnell: Dead or Alive, &quot;Daddy Daughter Dream Team&quot; Rabbit Hole: the story of Patrick and Sarah Getchell, Miracle Baby arrested in Virginia shooting, the Florida Steakhouse offering a nude dining experience, Wisconsin man allegedly kills mother and covers mother in cat litter before setting corpse on fire, Indiana woman cuts out her father&apos;s heart, Colombian theater evacuated during ‘Spider-Man’ screening due to moviegoer’s uncontrollable bout of ‘rotten’ farts, Listener Mail, and MORE!</itunes:summary>
+      <itunes:subtitle>Henry &amp; Eddie bring you this week&apos;s wildest stories and craziest news - Mitch McConnell: Dead or Alive, &quot;Daddy Daughter Dream Team&quot; Rabbit Hole: the story of Patrick and Sarah Getchell, Miracle Baby arrested in Virginia shooting, the Florida Steakhouse offering a nude dining experience, Wisconsin man allegedly kills mother and covers mother in cat litter before setting corpse on fire, Indiana woman cuts out her father&apos;s heart, Colombian theater evacuated during ‘Spider-Man’ screening due to moviegoer’s uncontrollable bout of ‘rotten’ farts, Listener Mail, and MORE!</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1205</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">be554ede-13e8-4b55-823c-0a107aebdea5</guid>
+      <title>Episode 675: Breatharianism</title>
+      <description><![CDATA[<p>This week, Henry leads the boys into the deadly world of Breatharianism, the completely debunked belief that humans can survive entirely on air and “universal energy.” From fast-food-loving conman Wiley Brooks to Australian guru Jasmuheen and her lethal 21-Day Process, we follow the ridiculous idea that convinced people to starve themselves in pursuit of spiritual immortality.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Fri, 31 Jul 2026 07:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>This week, Henry leads the boys into the deadly world of Breatharianism, the completely debunked belief that humans can survive entirely on air and “universal energy.” From fast-food-loving conman Wiley Brooks to Australian guru Jasmuheen and her lethal 21-Day Process, we follow the ridiculous idea that convinced people to starve themselves in pursuit of spiritual immortality.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="73741378" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/884afb6c-e3d4-4055-8c98-9d9ac3c8e7ca/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=884afb6c-e3d4-4055-8c98-9d9ac3c8e7ca&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 675: Breatharianism</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:duration>01:16:48</itunes:duration>
+      <itunes:summary>This week, Henry leads the boys into the deadly world of Breatharianism, the completely debunked belief that humans can survive entirely on air and “universal energy.” From fast-food-loving conman Wiley Brooks to Australian guru Jasmuheen and her lethal 21-Day Process, we follow the ridiculous idea that convinced people to starve themselves in pursuit of spiritual immortality.</itunes:summary>
+      <itunes:subtitle>This week, Henry leads the boys into the deadly world of Breatharianism, the completely debunked belief that humans can survive entirely on air and “universal energy.” From fast-food-loving conman Wiley Brooks to Australian guru Jasmuheen and her lethal 21-Day Process, we follow the ridiculous idea that convinced people to starve themselves in pursuit of spiritual immortality.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1200</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">65e8bc83-1be2-412a-b04b-5e7eb8edd87f</guid>
+      <title>Side Stories: Muyuns &amp; Monsters</title>
+      <description><![CDATA[<p>Henry & Eddie bring you this week's biggest stories and weirdest news - Henry loves The Muyun Brothers, the boys announce their new song Gods in Leather by Mass for Trash (feat. Henry & Marcus), Gooners causing chaos at Dollar Stores across the US, School Shooter Defense Drones, The War Crimes of The Minions, The Hat Man of Massachusetts, Listener Emails, and MORE!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Wed, 29 Jul 2026 19:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Henry & Eddie bring you this week's biggest stories and weirdest news - Henry loves The Muyun Brothers, the boys announce their new song Gods in Leather by Mass for Trash (feat. Henry & Marcus), Gooners causing chaos at Dollar Stores across the US, School Shooter Defense Drones, The War Crimes of The Minions, The Hat Man of Massachusetts, Listener Emails, and MORE!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="80704578" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/c1f201d3-40cb-4abb-bdc2-fe0670b08a95/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=c1f201d3-40cb-4abb-bdc2-fe0670b08a95&amp;feed=dCXMIpJz"/>
+      <itunes:title>Side Stories: Muyuns &amp; Monsters</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/dbb226d0-49fc-45bb-b070-10bf50435979/823fa23a-3a54-4aa4-af3b-a10776e7dda8/3000x3000/sidestorieslogo_hiresjpeg.jpg?aid=rss_feed"/>
+      <itunes:duration>01:24:03</itunes:duration>
+      <itunes:summary>Henry &amp; Eddie bring you this week&apos;s biggest stories and weirdest news - Henry loves The Muyun Brothers, the boys announce their new song Gods in Leather by Mass for Trash (feat. Henry &amp; Marcus), Gooners causing chaos at Dollar Stores across the US, School Shooter Defense Drones, The War Crimes of The Minions, The Hat Man of Massachusetts, Listener Emails, and MORE!</itunes:summary>
+      <itunes:subtitle>Henry &amp; Eddie bring you this week&apos;s biggest stories and weirdest news - Henry loves The Muyun Brothers, the boys announce their new song Gods in Leather by Mass for Trash (feat. Henry &amp; Marcus), Gooners causing chaos at Dollar Stores across the US, School Shooter Defense Drones, The War Crimes of The Minions, The Hat Man of Massachusetts, Listener Emails, and MORE!</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1202</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">095cc300-0691-4eb4-a76b-c04ad4bf59f9</guid>
+      <title>Episode 674: Florida Files - Tales from Florida&apos;s Female Prisons</title>
+      <description><![CDATA[<p>This week, Ed takes us behind the walls of Florida’s women’s prisons, uncovering decades of corruption, abuse, and suspicious deaths, before lightening the mood with the story of  “Mean” Marie Dean Arrington, the murderous mom who escaped Death Row and landed on the FBI’s Ten Most Wanted list.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Fri, 24 Jul 2026 07:00:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>This week, Ed takes us behind the walls of Florida’s women’s prisons, uncovering decades of corruption, abuse, and suspicious deaths, before lightening the mood with the story of  “Mean” Marie Dean Arrington, the murderous mom who escaped Death Row and landed on the FBI’s Ten Most Wanted list.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="80487239" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/1cbafb26-34ca-4681-9483-ecef1136e8ee/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=1cbafb26-34ca-4681-9483-ecef1136e8ee&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 674: Florida Files - Tales from Florida&apos;s Female Prisons</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:duration>01:23:50</itunes:duration>
+      <itunes:summary>This week, Ed takes us behind the walls of Florida’s women’s prisons, uncovering decades of corruption, abuse, and suspicious deaths, before lightening the mood with the story of  “Mean” Marie Dean Arrington, the murderous mom who escaped Death Row and landed on the FBI’s Ten Most Wanted list.</itunes:summary>
+      <itunes:subtitle>This week, Ed takes us behind the walls of Florida’s women’s prisons, uncovering decades of corruption, abuse, and suspicious deaths, before lightening the mood with the story of  “Mean” Marie Dean Arrington, the murderous mom who escaped Death Row and landed on the FBI’s Ten Most Wanted list.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1195</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">d78f9887-9ecd-4028-8bf9-7e998651faa2</guid>
+      <title>Pinocchio Unstrung: An Interview with Robert Englund - Last Interview on the Left</title>
+      <description><![CDATA[<p>This week on Last Interview on the Left, Henry and Ed welcome horror legend Robert Englund to the show to celebrate Pinocchio: Unstrung. The gang talks horror's next generation, practical effects, Freddy's legacy, killer puppets, the movies that still impress Robert, and why he's still chasing projects that surprise him. Plus, behind-the-scenes stories from Pinocchio: Unstrung, as well as a few unexpected movie recommendations from one of horror's all-time greats. Pinocchio: Unstrung in Theaters July 24th and VOD soon!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Fri, 24 Jul 2026 01:24:02 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>This week on Last Interview on the Left, Henry and Ed welcome horror legend Robert Englund to the show to celebrate Pinocchio: Unstrung. The gang talks horror's next generation, practical effects, Freddy's legacy, killer puppets, the movies that still impress Robert, and why he's still chasing projects that surprise him. Plus, behind-the-scenes stories from Pinocchio: Unstrung, as well as a few unexpected movie recommendations from one of horror's all-time greats. Pinocchio: Unstrung in Theaters July 24th and VOD soon!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="46113440" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/a5b9d627-1ea6-425a-a44d-6fafbf81ac48/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=a5b9d627-1ea6-425a-a44d-6fafbf81ac48&amp;feed=dCXMIpJz"/>
+      <itunes:title>Pinocchio Unstrung: An Interview with Robert Englund - Last Interview on the Left</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/dbb226d0-49fc-45bb-b070-10bf50435979/7c8b5cda-a57a-4850-b3eb-89310034b6be/3000x3000/lpotltextonlylogointerview2x.jpg?aid=rss_feed"/>
+      <itunes:duration>00:48:01</itunes:duration>
+      <itunes:summary>This week on Last Interview on the Left, Henry and Ed welcome horror legend Robert Englund to the show to celebrate Pinocchio: Unstrung. The gang talks horror&apos;s next generation, practical effects, Freddy&apos;s legacy, killer puppets, the movies that still impress Robert, and why he&apos;s still chasing projects that surprise him. Plus, behind-the-scenes stories from Pinocchio: Unstrung, as well as a few unexpected movie recommendations from one of horror&apos;s all-time greats. Pinocchio: Unstrung in Theaters July 24th and VOD soon!</itunes:summary>
+      <itunes:subtitle>This week on Last Interview on the Left, Henry and Ed welcome horror legend Robert Englund to the show to celebrate Pinocchio: Unstrung. The gang talks horror&apos;s next generation, practical effects, Freddy&apos;s legacy, killer puppets, the movies that still impress Robert, and why he&apos;s still chasing projects that surprise him. Plus, behind-the-scenes stories from Pinocchio: Unstrung, as well as a few unexpected movie recommendations from one of horror&apos;s all-time greats. Pinocchio: Unstrung in Theaters July 24th and VOD soon!</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1199</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">7122d495-b058-436f-a555-9ee9a1a1adbe</guid>
+      <title>Side Stories: Inside the Bricks &amp; Minifigs Scandal w/ Reckless Ben</title>
+      <description><![CDATA[<p>In this: Side Stories Special Report! Henry sits down with the spearhead behind the Bricks and Minifigs Controversy - Youtuber and Justice Seeker Reckless Ben joins the to discuss how a massive corporation stole thousands of dollars in Legos from an innocent man, his battles in court to find justice for victims, and we find out exactly where things stand in Reckless Ben's battle against Bricks and Minifigs.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Wed, 22 Jul 2026 19:24:18 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>In this: Side Stories Special Report! Henry sits down with the spearhead behind the Bricks and Minifigs Controversy - Youtuber and Justice Seeker Reckless Ben joins the to discuss how a massive corporation stole thousands of dollars in Legos from an innocent man, his battles in court to find justice for victims, and we find out exactly where things stand in Reckless Ben's battle against Bricks and Minifigs.</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="32315353" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/6cb74257-dfd8-4545-93e3-9ae1ab62c24f/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=6cb74257-dfd8-4545-93e3-9ae1ab62c24f&amp;feed=dCXMIpJz"/>
+      <itunes:title>Side Stories: Inside the Bricks &amp; Minifigs Scandal w/ Reckless Ben</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/dbb226d0-49fc-45bb-b070-10bf50435979/1707cf14-322e-4898-865b-1cfedc16624c/3000x3000/sidestorieslogo_hires.jpg?aid=rss_feed"/>
+      <itunes:duration>00:33:39</itunes:duration>
+      <itunes:summary>In this: Side Stories Special Report! Henry sits down with the spearhead behind the Bricks and Minifigs Controversy - Youtuber and Justice Seeker Reckless Ben joins the to discuss how a massive corporation stole thousands of dollars in Legos from an innocent man, his battles in court to find justice for victims, and we find out exactly where things stand in Reckless Ben&apos;s battle against Bricks and Minifigs.</itunes:summary>
+      <itunes:subtitle>In this: Side Stories Special Report! Henry sits down with the spearhead behind the Bricks and Minifigs Controversy - Youtuber and Justice Seeker Reckless Ben joins the to discuss how a massive corporation stole thousands of dollars in Legos from an innocent man, his battles in court to find justice for victims, and we find out exactly where things stand in Reckless Ben&apos;s battle against Bricks and Minifigs.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1198</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">b151967d-151a-4ff6-afe7-bec7acd2d977</guid>
+      <title>Side Stories: He Said, Pee Said</title>
+      <description><![CDATA[<p>Henry & Eddie bring you this week's weirdest stories and wettest news - the boys mourn the loss of Lady G, demand proof of life from Mitch McConnell, and cover a flight instructor’s final lesson, a flaming self-penectomy, a Mountain Dew rescue from the depths of a porta-potty, and a very wet night at a Morgan Wallen concert. Plus, Mormon skid marks and listener stories!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Wed, 22 Jul 2026 19:07:40 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Henry & Eddie bring you this week's weirdest stories and wettest news - the boys mourn the loss of Lady G, demand proof of life from Mitch McConnell, and cover a flight instructor’s final lesson, a flaming self-penectomy, a Mountain Dew rescue from the depths of a porta-potty, and a very wet night at a Morgan Wallen concert. Plus, Mormon skid marks and listener stories!</p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="70762165" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/7f2522a2-957f-4de0-99d1-7704a15f2caa/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=7f2522a2-957f-4de0-99d1-7704a15f2caa&amp;feed=dCXMIpJz"/>
+      <itunes:title>Side Stories: He Said, Pee Said</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/dbb226d0-49fc-45bb-b070-10bf50435979/49496442-b9e7-4f8d-9f90-7ee57fc04f66/3000x3000/sidestorieslogo_hiresjpeg.jpg?aid=rss_feed"/>
+      <itunes:duration>01:13:42</itunes:duration>
+      <itunes:summary>Henry &amp; Eddie bring you this week&apos;s weirdest stories and wettest news - the boys mourn the loss of Lady G, demand proof of life from Mitch McConnell, and cover a flight instructor’s final lesson, a flaming self-penectomy, a Mountain Dew rescue from the depths of a porta-potty, and a very wet night at a Morgan Wallen concert. Plus, Mormon skid marks and listener stories!</itunes:summary>
+      <itunes:subtitle>Henry &amp; Eddie bring you this week&apos;s weirdest stories and wettest news - the boys mourn the loss of Lady G, demand proof of life from Mitch McConnell, and cover a flight instructor’s final lesson, a flaming self-penectomy, a Mountain Dew rescue from the depths of a porta-potty, and a very wet night at a Morgan Wallen concert. Plus, Mormon skid marks and listener stories!</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>1197</itunes:episode>
+    </item>
+
+    <!-- 1172 items elided here to keep the fixture committable; the
+         newest 12 and oldest 12 are kept verbatim. The oldest are the
+         interesting ones: they predate the show's move between hosts. -->
+
+<item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191459401</guid>
+      <title>Episode 47: Origins of the Pyramids</title>
+      <description><![CDATA[<p>The origins of the pyramids are revealed! Join us as we explore different theories as to how these impossible structures will built, plus secrets of the Curse of King Tut's tomb are explored in depth. Surprisingly, it involves a canary.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:33:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The origins of the pyramids are revealed! Join us as we explore different theories as to how these impossible structures will built, plus secrets of the Curse of King Tut's tomb are explored in depth. Surprisingly, it involves a canary.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="40668674" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/b2511c2d-4828-4f96-a649-f65f5425b506/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=b2511c2d-4828-4f96-a649-f65f5425b506&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 47: Origins of the Pyramids</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/b2511c2d-4828-4f96-a649-f65f5425b506/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:41:54</itunes:duration>
+      <itunes:summary>The origins of the pyramids are revealed! Join us as we explore different theories as to how these impossible structures will built, plus secrets of the Curse of King Tut&apos;s tomb are explored in depth. Surprisingly, it involves a canary.</itunes:summary>
+      <itunes:subtitle>The origins of the pyramids are revealed! Join us as we explore different theories as to how these impossible structures will built, plus secrets of the Curse of King Tut&apos;s tomb are explored in depth. Surprisingly, it involves a canary.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>47</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191458278</guid>
+      <title>Episode 44: Creepypasta II - A Smattering of Creepy</title>
+      <description><![CDATA[<p>Creepypasta returns! Today's Last Podcast brings you that and more, including a particularly disturbing site called Normal Porn for Normal People, the East Side Rapist, and the mysterious disappearances in America's national parks.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:26:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Creepypasta returns! Today's Last Podcast brings you that and more, including a particularly disturbing site called Normal Porn for Normal People, the East Side Rapist, and the mysterious disappearances in America's national parks.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="53577261" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/ccf6c3ad-ca3c-4ff0-9e94-7f7e297dcd38/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=ccf6c3ad-ca3c-4ff0-9e94-7f7e297dcd38&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 44: Creepypasta II - A Smattering of Creepy</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/ccf6c3ad-ca3c-4ff0-9e94-7f7e297dcd38/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:55:20</itunes:duration>
+      <itunes:summary>Creepypasta returns! Today&apos;s Last Podcast brings you that and more, including a particularly disturbing site called Normal Porn for Normal People, the East Side Rapist, and the mysterious disappearances in America&apos;s national parks.</itunes:summary>
+      <itunes:subtitle>Creepypasta returns! Today&apos;s Last Podcast brings you that and more, including a particularly disturbing site called Normal Porn for Normal People, the East Side Rapist, and the mysterious disappearances in America&apos;s national parks.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>44</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191458270</guid>
+      <title>Episode 43: Occult Symbols</title>
+      <description><![CDATA[<p>The boys explore the phenomenon of occult symbols in everyday life, Masonic numerology, and the facts behind the claim that the President is a Reptilian/Grey/Humanoid hybrid.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:26:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys explore the phenomenon of occult symbols in everyday life, Masonic numerology, and the facts behind the claim that the President is a Reptilian/Grey/Humanoid hybrid.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="36378786" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/9629cfe5-d318-45ba-baa0-b13485244f10/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=9629cfe5-d318-45ba-baa0-b13485244f10&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 43: Occult Symbols</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/9629cfe5-d318-45ba-baa0-b13485244f10/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:37:27</itunes:duration>
+      <itunes:summary>The boys explore the phenomenon of occult symbols in everyday life, Masonic numerology, and the facts behind the claim that the President is a Reptilian/Grey/Humanoid hybrid.</itunes:summary>
+      <itunes:subtitle>The boys explore the phenomenon of occult symbols in everyday life, Masonic numerology, and the facts behind the claim that the President is a Reptilian/Grey/Humanoid hybrid.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>43</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191457823</guid>
+      <title>Episode 41: Our Psychic Powers</title>
+      <description><![CDATA[<p>The boys test their psychic abilities. The results...are disturbing!</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:24:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys test their psychic abilities. The results...are disturbing!</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="24272209" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/1f04686f-8502-46ef-bd37-00a65643eaed/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=1f04686f-8502-46ef-bd37-00a65643eaed&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 41: Our Psychic Powers</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/1f04686f-8502-46ef-bd37-00a65643eaed/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:24:51</itunes:duration>
+      <itunes:summary>The boys test their psychic abilities. The results...are disturbing!</itunes:summary>
+      <itunes:subtitle>The boys test their psychic abilities. The results...are disturbing!</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>41</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191457840</guid>
+      <title>Episode 42: Ghost, Alien, or Molested?</title>
+      <description><![CDATA[<p>The boys research ghost and alien stories on the internet to answer the burning question concerning most of them: was it a ghost or an alien, or their grandpa?</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:24:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys research ghost and alien stories on the internet to answer the burning question concerning most of them: was it a ghost or an alien, or their grandpa?</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="39935793" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/0ebc9695-154f-491b-940a-3bc36313923d/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=0ebc9695-154f-491b-940a-3bc36313923d&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 42: Ghost, Alien, or Molested?</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/0ebc9695-154f-491b-940a-3bc36313923d/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:41:09</itunes:duration>
+      <itunes:summary>The boys research ghost and alien stories on the internet to answer the burning question concerning most of them: was it a ghost or an alien, or their grandpa?</itunes:summary>
+      <itunes:subtitle>The boys research ghost and alien stories on the internet to answer the burning question concerning most of them: was it a ghost or an alien, or their grandpa?</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>42</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191457392</guid>
+      <title>Episode 40: The Alien Agenda</title>
+      <description><![CDATA[<p>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:21:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="37545757" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/c1591ddd-db47-4204-adea-4a212b3c0c09/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=c1591ddd-db47-4204-adea-4a212b3c0c09&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 40: The Alien Agenda</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/c1591ddd-db47-4204-adea-4a212b3c0c09/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:38:39</itunes:duration>
+      <itunes:summary>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</itunes:summary>
+      <itunes:subtitle>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>40</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191457381</guid>
+      <title>Episode 39: Hail Satan!</title>
+      <description><![CDATA[<p>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:21:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="44917552" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/0d4f4b67-d813-4b15-8a1b-dbc746c2a581/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=0d4f4b67-d813-4b15-8a1b-dbc746c2a581&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 39: Hail Satan!</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/0d4f4b67-d813-4b15-8a1b-dbc746c2a581/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:46:20</itunes:duration>
+      <itunes:summary>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</itunes:summary>
+      <itunes:subtitle>The boys explore the many facets of Satan and Satanism, including the origins of the myth, how extremely misinformed people are about the concept of Satanism, and Satanic clubs throughout the centuries.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>39</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191456844</guid>
+      <title>Episode 35: There&apos;s Bones In The Chocolate</title>
+      <description><![CDATA[<p>The boys explore the world of mentally challenged serial killers.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:18:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys explore the world of mentally challenged serial killers.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="32356105" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/9c08afbc-1e0e-4188-b52b-29b3503b61e9/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=9c08afbc-1e0e-4188-b52b-29b3503b61e9&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 35: There&apos;s Bones In The Chocolate</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/9c08afbc-1e0e-4188-b52b-29b3503b61e9/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:33:15</itunes:duration>
+      <itunes:summary>The boys explore the world of mentally challenged serial killers.</itunes:summary>
+      <itunes:subtitle>The boys explore the world of mentally challenged serial killers.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>35</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191456854</guid>
+      <title>Episode 36: Sandwiches in the Matrix</title>
+      <description><![CDATA[<p>Glitches in the matrix, masturbation sigils, and the writings of Philip K. Dick!</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:18:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Glitches in the matrix, masturbation sigils, and the writings of Philip K. Dick!</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="30478476" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/fa81e0f3-d3d7-43eb-96eb-b7697ba52b56/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=fa81e0f3-d3d7-43eb-96eb-b7697ba52b56&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 36: Sandwiches in the Matrix</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/fa81e0f3-d3d7-43eb-96eb-b7697ba52b56/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:31:18</itunes:duration>
+      <itunes:summary>Glitches in the matrix, masturbation sigils, and the writings of Philip K. Dick!</itunes:summary>
+      <itunes:subtitle>Glitches in the matrix, masturbation sigils, and the writings of Philip K. Dick!</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>36</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191456885</guid>
+      <title>Episode 38: Erratic Behavior</title>
+      <description><![CDATA[<p>Our conversation of the impending apocalypse continues as new stories of cannibalism surface and previously covered stories reveal more disturbing details.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:18:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>Our conversation of the impending apocalypse continues as new stories of cannibalism surface and previously covered stories reveal more disturbing details.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="29622343" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/ab121ea4-e549-4157-a43c-eb3bbcfae6ed/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=ab121ea4-e549-4157-a43c-eb3bbcfae6ed&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 38: Erratic Behavior</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/ab121ea4-e549-4157-a43c-eb3bbcfae6ed/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:30:25</itunes:duration>
+      <itunes:summary>Our conversation of the impending apocalypse continues as new stories of cannibalism surface and previously covered stories reveal more disturbing details.</itunes:summary>
+      <itunes:subtitle>Our conversation of the impending apocalypse continues as new stories of cannibalism surface and previously covered stories reveal more disturbing details.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>38</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191456868</guid>
+      <title>Episode 37: The Zombie Apocalypse is Upon Us</title>
+      <description><![CDATA[<p>You've read the story of the face-eating man, now hear all the alarming facts surrounding the case! From the rash of mysterious happenings around Florida in the surrounding areas to the extreme effects of snorting bath salts, LPOTL is delving into the world of real-life zombies for your frightening pleasure.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:18:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>You've read the story of the face-eating man, now hear all the alarming facts surrounding the case! From the rash of mysterious happenings around Florida in the surrounding areas to the extreme effects of snorting bath salts, LPOTL is delving into the world of real-life zombies for your frightening pleasure.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="33598386" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/366e99f8-f807-40be-9899-7bb0afc7aa9a/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=366e99f8-f807-40be-9899-7bb0afc7aa9a&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 37: The Zombie Apocalypse is Upon Us</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/366e99f8-f807-40be-9899-7bb0afc7aa9a/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:34:41</itunes:duration>
+      <itunes:summary>You&apos;ve read the story of the face-eating man, now hear all the alarming facts surrounding the case! From the rash of mysterious happenings around Florida in the surrounding areas to the extreme effects of snorting bath salts, LPOTL is delving into the world of real-life zombies for your frightening pleasure.</itunes:summary>
+      <itunes:subtitle>You&apos;ve read the story of the face-eating man, now hear all the alarming facts surrounding the case! From the rash of mysterious happenings around Florida in the surrounding areas to the extreme effects of snorting bath salts, LPOTL is delving into the world of real-life zombies for your frightening pleasure.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>37</itunes:episode>
+    </item>
+    <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/191455933</guid>
+      <title>Episode 34: Heaven&apos;s Gate</title>
+      <description><![CDATA[<p>The boys explore the Heaven's Gate incident and the man behind it all, Marshall Applewhite.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></description>
+      <pubDate>Mon, 16 Feb 2015 19:13:00 +0000</pubDate>
+      <author>thelastpodcastnetwork@gmail.com (The Last Podcast Network)</author>
+      <link>https://www.lastpodcastnetwork.com</link>
+      <content:encoded><![CDATA[<p>The boys explore the Heaven's Gate incident and the man behind it all, Marshall Applewhite.</p><p> </p>
+<p><p><strong>For Live Shows, Merch, and More Visit: </strong><a href="https://linktr.ee/lpontheleft"><strong>www.LastPodcastOnTheLeft.com</strong></a></p><p>Kevin MacLeod (incompetech.com)<br>Licensed under Creative Commons: By Attribution 4.0 License<br><a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p><p>Subscribe to SiriusXM Podcasts+ to listen to new episodes of Last Podcast on the Left ad-free, plus get Friday episodes a whole week early. Start a free trial now on Apple Podcasts or by visiting <a href="siriusxm.com/podcastsplus" target="_blank">siriusxm.com/podcastsplus</a>.&nbsp;</p></p><br/> <p>Hosted by Simplecast, an AdsWizz company. See <a href="https://pcm.adswizz.com">pcm.adswizz.com</a> for information about our collection and use of personal data for advertising.</p>]]></content:encoded>
+      <enclosure length="40125356" type="audio/mpeg" url="https://pdst.fm/e/dts.podtrac.com/redirect.mp3/stitcher.simplecastaudio.com/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/episodes/b1717c4c-bd01-4d9a-9273-21181af20bea/audio/128/default.mp3?aid=rss_feed&amp;awCollectionId=4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a&amp;awEpisodeId=b1717c4c-bd01-4d9a-9273-21181af20bea&amp;feed=dCXMIpJz"/>
+      <itunes:title>Episode 34: Heaven&apos;s Gate</itunes:title>
+      <itunes:author>The Last Podcast Network</itunes:author>
+      <itunes:image href="https://image.simplecastcdn.com/images/4ca28c/4ca28c43-1b5a-4fc4-bc21-fc9e79754a3a/b1717c4c-bd01-4d9a-9273-21181af20bea/3000x3000/lpotl-poster-lpn.jpg?aid=rss_feed"/>
+      <itunes:duration>00:41:39</itunes:duration>
+      <itunes:summary>The boys explore the Heaven&apos;s Gate incident and the man behind it all, Marshall Applewhite.</itunes:summary>
+      <itunes:subtitle>The boys explore the Heaven&apos;s Gate incident and the man behind it all, Marshall Applewhite.</itunes:subtitle>
+      <itunes:explicit>true</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>34</itunes:episode>
+    </item>
+  </channel>
+</rss>

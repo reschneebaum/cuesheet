@@ -19,19 +19,21 @@ features and aren't built as such.
 
 ## Status
 
-Early. Phase 1 of 5.
+Early. Phase 3 of 5 complete.
 
 | Phase | | |
 |---|---|---|
 | 0 | Scope and architecture | done |
-| 1 | `cuesheet_domain` — pure Dart, test-first | in progress |
-| 2 | `cuesheet_data` — Drift schema, repositories | |
-| 3 | Feed ingestion and directory search | |
+| 1 | `cuesheet_domain` — pure Dart, test-first | done |
+| 2 | `cuesheet_data` — Drift schema, repositories | done |
+| 3 | Feed ingestion and directory search | done |
 | 4 | `cuesheet_playback` — audio | |
 | 5 | `cuesheet_ui` / `cuesheet_app` | |
 
-The intent algebra is implemented and tested. Filtering, sorting,
-listening-state semantics, and the entities are next.
+The engine works: the intent algebra, filtering and sorting, listening-state
+semantics, persistence, and now real feeds going in one end and identified
+episodes coming out the other. Audio is next, and it is the first part that
+needs a device.
 
 ## Why it's built this way
 
@@ -42,8 +44,10 @@ first, persistence second, audio fourth, UI last. You learn Dart before you
 learn Flutter, rather than both at once, and by the time there's a UI the
 engine underneath it already works.
 
-A consequence worth naming: there is no runnable app yet, and won't be for a
-while. A deliberately ugly debug UI arrives at the end of Phase 2.
+A consequence worth naming: the app you can run is a deliberately ugly debug
+harness — lists and buttons, no design — which arrived at the end of Phase 2 and
+grew a Feeds tab in Phase 3. You can subscribe to a real podcast and watch what
+ingestion did to your library. You cannot yet play anything.
 
 ## Layout
 
@@ -53,7 +57,7 @@ which depends on no Flutter, no database, and no I/O.
 ```
 packages/
   cuesheet_domain/     entities, the playback intent algebra, filter vocabulary
-  cuesheet_data/       Drift schema, repositories, feed parsing, search      (todo)
+  cuesheet_data/       Drift schema, repositories, feed parsing, search
   cuesheet_playback/   just_audio, behind interfaces the domain owns         (todo)
   cuesheet_ui/         design tokens and components                          (todo)
   cuesheet_app/        the Flutter app; Riverpod wiring lives here           (todo)
@@ -65,11 +69,15 @@ Flutter is pinned with [fvm](https://fvm.app) via `.fvmrc` (3.41.6 / Dart 3.11.4
 
 ```sh
 dart pub get
-cd packages/cuesheet_domain && dart test
+cd packages/cuesheet_domain && dart test   # 204
+cd ../cuesheet_data && dart test           # 277
+cd ../cuesheet_app && flutter test         # 17
 ```
 
-The domain suite needs no simulator, no database, and no audio session, and
-runs in under a second. That's the point of the layering.
+The domain suite needs no simulator, no database, and no audio session. The
+data suite adds real SQLite in memory and a corpus of real podcast feeds, and
+still touches no network. All three together run in a couple of seconds. That's
+the point of the layering.
 
 ## Documentation
 
