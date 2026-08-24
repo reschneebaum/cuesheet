@@ -62,11 +62,17 @@ class _Controls extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    void select({EpisodeFilter? filter, List<SortSpec>? sort}) =>
-        ref.read(querySelectionProvider.notifier).select(EpisodeQuery(
-              filter: filter ?? query.filter,
-              sort: sort ?? query.sort,
-            ));
+    final podcasts = ref.watch(podcastsProvider).value ?? const <Podcast>[];
+    final selectedPodcast = ref.watch(podcastFilterProvider);
+
+    void select({EpisodeFilter? filter, List<SortSpec>? sort}) => ref
+        .read(querySelectionProvider.notifier)
+        .select(
+          EpisodeQuery(
+            filter: filter ?? query.filter,
+            sort: sort ?? query.sort,
+          ),
+        );
 
     // Filters are values with real equality, so working out which preset is
     // active is just `==` — no parallel "selected index" state to drift.
@@ -94,20 +100,47 @@ class _Controls extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 8),
-          Row(
-            children: [
-              const Text('Sort: '),
-              DropdownButton<String>(
-                value: activeSort,
-                hint: const Text('custom'),
-                items: [
-                  for (final key in _sorts.keys)
-                    DropdownMenuItem(value: key, child: Text(key)),
+          // Scrolls sideways rather than wrapping. Wrapping would grow the
+          // controls downward and eat the list; a podcast title is arbitrarily
+          // long and would otherwise overflow the row.
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                const Text('Sort: '),
+                DropdownButton<String>(
+                  value: activeSort,
+                  hint: const Text('custom'),
+                  items: [
+                    for (final key in _sorts.keys)
+                      DropdownMenuItem(value: key, child: Text(key)),
+                  ],
+                  onChanged: (key) =>
+                      key == null ? null : select(sort: _sorts[key]),
+                ),
+                if (podcasts.isNotEmpty) ...[
+                  const SizedBox(width: 16),
+                  const Text('Podcast: '),
+                  // A dropdown rather than a chip per podcast: it costs no extra
+                  // height, which keeps the list itself the tall thing on screen,
+                  // and it still works at fifty subscriptions.
+                  DropdownButton<PodcastId?>(
+                    value: selectedPodcast,
+                    hint: const Text('all'),
+                    items: [
+                      const DropdownMenuItem(child: Text('all')),
+                      for (final podcast in podcasts)
+                        DropdownMenuItem(
+                          value: podcast.id,
+                          child: Text(podcast.title),
+                        ),
+                    ],
+                    onChanged: (id) =>
+                        ref.read(podcastFilterProvider.notifier).select(id),
+                  ),
                 ],
-                onChanged: (key) =>
-                    key == null ? null : select(sort: _sorts[key]),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
@@ -127,28 +160,49 @@ class _EpisodeList extends ConsumerWidget {
     final visible = [for (final v in views) v.episode.id];
     final now = ref.watch(clockProvider)();
     final queue = ref.watch(queueProvider).value ?? QueueState.empty;
+    final rungs = ref.watch(matchRungsProvider).value ?? const {};
 
     return ListView.separated(
       itemCount: views.length,
       separatorBuilder: (_, _) => const Divider(height: 1),
       itemBuilder: (context, index) {
         final view = views[index];
-        final state = listenStateOf(view.listening,
-            episodeDuration: view.episode.duration, now: now);
+        final state = listenStateOf(
+          view.listening,
+          episodeDuration: view.episode.duration,
+          now: now,
+        );
         final queued = queue.active?.items.indexOf(view.episode.id) ?? -1;
         final playing = queue.nowPlaying == view.episode.id;
+
+        final rung = rungs[view.episode.id];
 
         return ListTile(
           dense: true,
           leading: playing ? const Icon(Icons.volume_up, size: 18) : null,
-          title: Text(view.episode.title),
+          title: Row(
+            children: [
+              Flexible(child: Text(view.episode.title)),
+              // §6: an orphan is gone from the feed but kept, because the user
+              // did something to it. Shown rather than hidden — this is the
+              // harness, and the whole question is whether ingestion did the
+              // right thing.
+              if (view.episode.isOrphaned)
+                const Padding(
+                  padding: EdgeInsets.only(left: 6),
+                  child: Text('ORPHANED', style: TextStyle(fontSize: 10)),
+                ),
+            ],
+          ),
           subtitle: Text(
             '${view.podcastTitle} · ${describeState(state)} · '
             '${formatDuration(view.listening.position)}'
             ' / ${formatDuration(view.episode.duration)}'
             '${view.listening.playCount > 0 ? ' · ×${view.listening.playCount}' : ''}'
             // Queue membership on the row itself, not hidden behind a tap.
-            '${queued >= 0 ? ' · queued #${queued + 1}' : ''}',
+            '${queued >= 0 ? ' · queued #${queued + 1}' : ''}'
+            // How this row got attached to its feed item.
+            '${rung == null ? '' : ' · matched: ${rung.name}'}',
           ),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,

@@ -70,9 +70,50 @@ class QuerySelection extends Notifier<EpisodeQuery> {
 final querySelectionProvider =
     NotifierProvider<QuerySelection, EpisodeQuery>(QuerySelection.new);
 
-final episodesProvider = StreamProvider<List<EpisodeView>>((ref) => ref
-    .watch(episodeRepositoryProvider)
-    .watch(ref.watch(querySelectionProvider)));
+/// Which podcast the list is narrowed to, or null for all of them.
+///
+/// Kept apart from [querySelectionProvider] rather than folded into its filter
+/// so the two compose: picking a podcast must not clear the listen-state chip,
+/// and the chips can keep deciding what is selected by plain `==` on a value.
+class PodcastFilter extends Notifier<PodcastId?> {
+  @override
+  PodcastId? build() => null;
+
+  void select(PodcastId? id) => state = id;
+}
+
+final podcastFilterProvider =
+    NotifierProvider<PodcastFilter, PodcastId?>(PodcastFilter.new);
+
+final episodesProvider = StreamProvider<List<EpisodeView>>((ref) {
+  final selected = ref.watch(querySelectionProvider);
+  final podcast = ref.watch(podcastFilterProvider);
+
+  return ref.watch(episodeRepositoryProvider).watch(EpisodeQuery(
+        filter: podcast == null
+            ? selected.filter
+            : AllOf([selected.filter, InPodcasts({podcast})]),
+        sort: selected.sort,
+        limit: selected.limit,
+      ));
+});
+
+/// Diagnostic only: which rung of §6's identity ladder attached each episode
+/// to its feed item.
+///
+/// Read straight off the row rather than through [EpisodeView], deliberately.
+/// The rung is ingestion bookkeeping — it answers "how did this match?" when
+/// something looks wrong — and putting it on a domain entity would mean the
+/// domain knowing that feeds exist. The debug harness is allowed to reach past
+/// the repositories for it; nothing else is.
+final matchRungsProvider = StreamProvider<Map<EpisodeId, MatchRung>>((ref) {
+  final db = ref.watch(databaseProvider);
+  return db.select(db.episodes).watch().map((rows) => {
+        // Null-aware map value: an episode with no recorded rung is absent
+        // from the map rather than present with a null.
+        for (final row in rows) EpisodeId(row.id): ?row.matchRung,
+      });
+});
 
 /// Every episode by id, so the queue can show titles for the ids it holds.
 final episodeIndexProvider =

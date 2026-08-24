@@ -204,4 +204,96 @@ void main() {
 
     expect(find.textContaining('No Audio Here'), findsOneWidget);
   });
+
+  group('what ingestion did, on the episode rows', () {
+    Future<void> showEpisodes(WidgetTester tester) async {
+      await tester.tap(find.text('Episodes'));
+      await settle(tester);
+    }
+
+    appTest('a newly ingested episode says it was a first sighting',
+        (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+      await showEpisodes(tester);
+
+      expect(find.textContaining('matched: firstSighting'), findsNWidgets(2));
+    });
+
+    appTest('after a refresh the rows say which rung attached them',
+        (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+      await tester.tap(find.text('Refresh'));
+      await settle(tester);
+      await showEpisodes(tester);
+
+      // §6 rule 6: the column holds the most recent match, so a steady-state
+      // refresh rewrites firstSighting to the rung that actually matched.
+      expect(find.textContaining('matched: guid'), findsNWidgets(2));
+      expect(find.textContaining('matched: firstSighting'), findsNothing);
+    });
+
+    appTest('an enclosure that moved reports the rung that rescued it',
+        (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+
+      // Same audio, new guids: the CMS migration case.
+      transport.bodies[feedUrl] = feed(['One', 'Two'])
+          .replaceAll('<guid>guid-', '<guid>rewritten-');
+      await tester.tap(find.text('Refresh'));
+      await settle(tester);
+      await showEpisodes(tester);
+
+      expect(find.textContaining('matched: enclosureUrl'), findsNWidgets(2));
+    });
+
+    appTest('an orphan is labelled rather than hidden', (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+
+      final second = (await db.select(db.episodes).get())
+          .firstWhere((e) => e.title == 'Two');
+      await DriftListeningRepository(db).save(ListeningState(
+        episodeId: EpisodeId(second.id),
+        position: const Duration(minutes: 4),
+        startCount: 1,
+        lastPlayedAt: DateTime.utc(2026, 8, 24),
+      ));
+
+      transport.bodies[feedUrl] = feed(['One']);
+      await tester.tap(find.text('Refresh'));
+      await settle(tester);
+      await showEpisodes(tester);
+
+      // Hidden in the real UI later (§6); shown here, because the whole
+      // question the harness answers is whether ingestion did the right thing.
+      expect(find.text('ORPHANED'), findsOneWidget);
+      expect(find.text('Two'), findsOneWidget);
+    });
+
+    appTest('the podcast dropdown narrows the list to one show',
+        (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+
+      const other = 'https://feeds.example.com/other.xml';
+      transport.bodies[other] =
+          feed(['Three'], title: 'Nightshift Radio');
+      await subscribeByUrl(tester, other);
+      await showEpisodes(tester);
+
+      expect(find.text('One'), findsOneWidget);
+      expect(find.text('Three'), findsOneWidget);
+
+      await tester.tap(find.byType(DropdownButton<PodcastId?>));
+      await settle(tester);
+      await tester.tap(find.text('Nightshift Radio').last);
+      await settle(tester);
+
+      expect(find.text('Three'), findsOneWidget);
+      expect(find.text('One'), findsNothing);
+    });
+  });
 }

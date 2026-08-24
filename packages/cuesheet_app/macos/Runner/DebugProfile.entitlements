@@ -8,5 +8,11 @@
 	<true/>
 	<key>com.apple.security.network.server</key>
 	<true/>
+	<!-- Outbound HTTP, for feed refresh and directory search. The sandbox
+	     denies it by default and Flutter's template does not add it, so
+	     without this every fetch fails with a socket error that looks like
+	     the feed is down rather than like the app is boxed in. -->
+	<key>com.apple.security.network.client</key>
+	<true/>
 </dict>
 </plist>
