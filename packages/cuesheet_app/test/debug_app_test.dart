@@ -98,7 +98,7 @@ void main() {
     await tester.tap(find.text('Queue'));
     await settle(tester);
 
-    expect(find.text('Position 1 of 18'), findsOneWidget);
+    expect(find.text('#1 of 18'), findsOneWidget);
   });
 
   appTest('play just this leaves the queue alone', (tester) async {
@@ -120,9 +120,9 @@ void main() {
     await settle(tester);
 
     // The whole point of detached playback, asserted through the UI.
-    expect(find.textContaining('Playing detached'), findsOneWidget);
+    expect(find.textContaining('Playing on its own'), findsOneWidget);
     expect(
-      find.text('The queue is untouched and will not advance.'),
+      find.textContaining('The queue is untouched at #1 of 18'),
       findsOneWidget,
     );
   });
@@ -159,12 +159,12 @@ void main() {
     await tester.tap(find.text('Queue'));
     await settle(tester);
 
-    expect(find.text('Position 1 of 3'), findsOneWidget);
+    expect(find.text('#1 of 3'), findsOneWidget);
     expect(find.text('Restore'), findsOneWidget);
 
     await tester.tap(find.text('Restore'));
     await settle(tester);
-    expect(find.text('Position 1 of 18'), findsOneWidget);
+    expect(find.text('#1 of 18'), findsOneWidget);
   });
 
   appTest('undo puts the queue back', (tester) async {
@@ -182,8 +182,15 @@ void main() {
     await tester.tap(find.text('Undo (1)'));
     await settle(tester);
 
-    expect(find.text('The queue is empty.'), findsOneWidget);
-    expect(find.text('Undo (0)'), findsOneWidget);
+    expect(find.text('Nothing queued'), findsOneWidget);
+    // Not "Undo (0)": a count of nothing is noise, so the label drops it and
+    // the control disables.
+    expect(find.text('Undo'), findsOneWidget);
+    expect(
+      tester.widget<TextButton>(
+          find.widgetWithText(TextButton, 'Undo')).onPressed,
+      isNull,
+    );
   });
 
   appTest('filtering by listen state narrows the list', (tester) async {

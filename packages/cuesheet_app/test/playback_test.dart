@@ -119,7 +119,7 @@ void main() {
 
     await tester.tap(find.text('Queue'));
     await settle(tester);
-    expect(find.text('Position 2 of 18'), findsOneWidget);
+    expect(find.text('#2 of 18'), findsOneWidget);
   });
 
   appTest('the finished episode stays in the queue', (tester) async {
@@ -131,7 +131,7 @@ void main() {
 
     await tester.tap(find.text('Queue'));
     await settle(tester);
-    expect(find.text('Position 2 of 18'), findsOneWidget);
+    expect(find.text('#2 of 18'), findsOneWidget);
   });
 
   appTest('finishing counts the play and stamps the episode', (tester) async {
@@ -165,7 +165,7 @@ void main() {
     await tester.tap(find.text('Queue'));
     await settle(tester);
     // Untouched: still eighteen items, still on the first.
-    expect(find.text('Position 1 of 18'), findsOneWidget);
+    expect(find.textContaining('#1 of 18'), findsOneWidget);
   });
 
   appTest('a detached listen is still recorded', (tester) async {
@@ -230,7 +230,7 @@ void main() {
     await intentOn(tester, 1, 'Play from here up');
     await tester.tap(find.text('Queue'));
     await settle(tester);
-    expect(find.text('Position 1 of 2'), findsOneWidget);
+    expect(find.text('#1 of 2'), findsOneWidget);
 
     engine.finish();
     await settle(tester);
@@ -240,6 +240,6 @@ void main() {
     expect(engine.calls.last, 'stop');
     await tester.tap(find.text('Queue'));
     await settle(tester);
-    expect(find.textContaining('Nothing playing'), findsOneWidget);
+    expect(find.textContaining('Reached the end'), findsOneWidget);
   });
 }
