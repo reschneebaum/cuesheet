@@ -36,6 +36,10 @@ void main() {
       child: const DebugApp(),
     ));
     await settle(tester);
+    // The app opens on the Library, which is right for a podcast app and wrong
+    // for these tests: they are all about the episode list.
+    await tester.tap(find.text('Episodes'));
+    await settle(tester);
     await tester.tap(find.text('Seed data'));
     await settle(tester);
   }

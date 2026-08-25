@@ -1,4 +1,5 @@
 import 'package:cuesheet_app/src/debug_app.dart';
+import 'package:cuesheet_app/src/podcast_page.dart';
 import 'package:cuesheet_app/src/providers.dart';
 import 'package:cuesheet_data/cuesheet_data.dart';
 import 'package:cuesheet_domain/cuesheet_domain.dart';
@@ -302,6 +303,121 @@ void main() {
 
       expect(find.text('Three'), findsOneWidget);
       expect(find.text('One'), findsNothing);
+    });
+  });
+
+  group('the library', () {
+    Future<void> showLibrary(WidgetTester tester) async {
+      await tester.tap(find.text('Library'));
+      await settle(tester);
+    }
+
+    appTest('says what to do when nothing is subscribed', (tester) async {
+      await pumpFeeds(tester);
+      await showLibrary(tester);
+
+      expect(find.text('Nothing subscribed yet'), findsOneWidget);
+      expect(find.textContaining('back catalogue'), findsOneWidget);
+    });
+
+    appTest('a subscription appears with its unplayed count', (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+      await showLibrary(tester);
+
+      expect(find.text('The Cartographers'), findsOneWidget);
+      expect(find.text('2 unplayed'), findsOneWidget);
+    });
+
+    appTest('a caught-up subscription shows no count at all', (tester) async {
+      // A zero is a number you have to read before discovering it means
+      // "nothing to do".
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+
+      for (final row in await db.select(db.episodes).get()) {
+        await DriftListeningRepository(db).save(ListeningState(
+          episodeId: EpisodeId(row.id),
+          position: const Duration(hours: 2),
+          playCount: 1,
+          explicitlyFinished: true,
+          lastPlayedAt: DateTime.utc(2026, 8, 25),
+        ));
+      }
+      await showLibrary(tester);
+
+      expect(find.text('The Cartographers'), findsOneWidget);
+      expect(find.textContaining('unplayed'), findsNothing);
+    });
+
+    appTest('opening a show lists its episodes without repeating its name',
+        (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+      await showLibrary(tester);
+
+      await tester.tap(find.text('The Cartographers'));
+      await settle(tester);
+
+      expect(find.byType(PodcastPage), findsOneWidget);
+      expect(find.text('One'), findsOneWidget);
+      expect(find.text('Two'), findsOneWidget);
+      // Scoped to this route: the library underneath is still mounted, and its
+      // tile carries the same name.
+      expect(
+        find.descendant(
+          of: find.byType(PodcastPage),
+          matching: find.text('The Cartographers'),
+        ),
+        findsOneWidget,
+      );
+    });
+
+    appTest('the episode order can be flipped for a serialised show',
+        (tester) async {
+      await pumpFeeds(tester);
+      transport.bodies[feedUrl] = feed(['One', 'Two', 'Three']);
+      await subscribeByUrl(tester);
+      await showLibrary(tester);
+      await tester.tap(find.text('The Cartographers'));
+      await settle(tester);
+
+      // Every item shares a pubDate in the fixture, so assert the control
+      // itself flips rather than guessing at the resulting order.
+      expect(find.text('NEWEST FIRST'), findsOneWidget);
+      await tester.tap(find.widgetWithText(TextButton, 'Oldest first'));
+      await settle(tester);
+      expect(find.text('OLDEST FIRST'), findsOneWidget);
+    });
+
+    appTest('a show can be refreshed from its own screen', (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+      await showLibrary(tester);
+      await tester.tap(find.text('The Cartographers'));
+      await settle(tester);
+
+      transport.bodies[feedUrl] = feed(['One', 'Two', 'Three']);
+      await tester.tap(find.text('Check for new'));
+      await settle(tester);
+
+      expect(find.text('Three'), findsOneWidget);
+    });
+
+    appTest('an episode can be queued from a show screen', (tester) async {
+      await pumpFeeds(tester);
+      await subscribeByUrl(tester);
+      await showLibrary(tester);
+      await tester.tap(find.text('The Cartographers'));
+      await settle(tester);
+
+      await tester.tap(find.text('One'));
+      await settle(tester);
+      await tester.tap(find.text('Add to queue'));
+      await settle(tester);
+
+      expect(find.byType(PodcastPage), findsOneWidget);
+      expect(find.text('1'), findsWidgets);
     });
   });
 }

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'episodes_page.dart';
 import 'feeds_page.dart';
+import 'library_page.dart';
 import 'playback_controller.dart';
 import 'providers.dart';
 import 'queue_page.dart';
@@ -76,7 +77,7 @@ class _HomeState extends ConsumerState<_Home> {
     ref.watch(playbackControllerProvider);
 
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Cuesheet debug · $episodeCount episodes'),
@@ -91,7 +92,8 @@ class _HomeState extends ConsumerState<_Home> {
               child: const Text('Seed data'),
             ),
           ],
-          bottom: const TabBar(tabs: [
+          bottom: const TabBar(isScrollable: true, tabs: [
+            Tab(text: 'Library'),
             Tab(text: 'Episodes'),
             Tab(text: 'Queue'),
             Tab(text: 'Saved'),
@@ -102,6 +104,7 @@ class _HomeState extends ConsumerState<_Home> {
           children: [
             Expanded(
               child: TabBarView(children: [
+                LibraryPage(),
                 EpisodesPage(),
                 QueuePage(),
                 SavedPage(),

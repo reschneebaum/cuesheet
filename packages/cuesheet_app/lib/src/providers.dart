@@ -174,6 +174,19 @@ class IngestionLog extends Notifier<List<String>> {
 final ingestionLogProvider =
     NotifierProvider<IngestionLog, List<String>>(IngestionLog.new);
 
+/// One podcast's episodes, in the order that screen is showing them.
+///
+/// Keyed by a record so the sort is part of the identity: flipping to
+/// oldest-first is a different query, not the same query mutated, and Riverpod
+/// keeps both alive while the screen is on either.
+final podcastEpisodesProvider = StreamProvider.family<List<EpisodeView>,
+    ({PodcastId podcast, bool newestFirst})>(
+  (ref, key) => ref.watch(episodeRepositoryProvider).watch(EpisodeQuery(
+        filter: InPodcasts({key.podcast}),
+        sort: [SortSpec(SortField.publishedAt, descending: key.newestFirst)],
+      )),
+);
+
 /// The engine's own reports, for the transport bar.
 ///
 /// A second listener on the same broadcast stream the controller uses — which

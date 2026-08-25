@@ -41,6 +41,11 @@ class QueuePage extends ConsumerWidget {
     }
 
     return ReorderableListView.builder(
+      // On desktop `ReorderableListView` adds a drag handle of its own, which
+      // lands next to the one `QueueTile` was already given and reads as two
+      // controls for one job. Ours stays, because it is the one that works on
+      // touch as well.
+      buildDefaultDragHandles: false,
       // Reordering is the one queue edit that is a direct manipulation rather
       // than a named choice from a sheet — but it is still an intent, and it
       // still goes through `applyIntent` like every other.
