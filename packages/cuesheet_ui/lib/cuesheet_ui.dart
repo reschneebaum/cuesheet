@@ -6,11 +6,14 @@
 /// stack underneath them (§3).
 library;
 
+export 'src/components/artwork.dart';
 export 'src/components/empty_state.dart';
 export 'src/components/episode_tile.dart';
 export 'src/components/intent_sheet.dart';
 export 'src/components/queue_tile.dart';
+export 'src/components/scrubber.dart';
 export 'src/components/section_header.dart';
+export 'src/components/transport_controls.dart';
 export 'src/format.dart';
 export 'src/theme/cuesheet_theme.dart';
 export 'src/theme/tokens.dart';

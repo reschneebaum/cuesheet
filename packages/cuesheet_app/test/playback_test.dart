@@ -1,5 +1,7 @@
 import 'package:cuesheet_app/src/debug_app.dart';
+import 'package:cuesheet_app/src/now_playing_page.dart';
 import 'package:cuesheet_app/src/providers.dart';
+import 'package:cuesheet_app/src/transport_bar.dart';
 import 'package:cuesheet_data/cuesheet_data.dart';
 import 'package:cuesheet_ui/cuesheet_ui.dart';
 import 'package:cuesheet_domain/cuesheet_domain.dart';
@@ -81,13 +83,26 @@ void main() {
 
   appTest('the transport reflects the engine, not the stored playhead',
       (tester) async {
-    // The database is written on a five-second debounce (§9); a scrubber that
-    // only moved every five seconds would look broken.
+    // The database is written on a five-second debounce (§9). Both elapses
+    // below are well inside it, so if the bar moves it is reading ticks.
     await intentOn(tester, 0, 'Play from here down');
-    engine.elapse(const Duration(seconds: 3));
-    await settle(tester);
 
-    expect(find.textContaining('00:03 /'), findsOneWidget);
+    String countdown() => tester
+        .widgetList<Text>(find.byType(Text))
+        .map((t) => t.data ?? '')
+        .firstWhere((d) => d.contains('-0') || d.contains('-1'),
+            orElse: () => '');
+
+    engine.elapse(const Duration(seconds: 1));
+    await settle(tester);
+    final first = countdown();
+
+    engine.elapse(const Duration(seconds: 2));
+    await settle(tester);
+    final second = countdown();
+
+    expect(first, isNotEmpty);
+    expect(second, isNot(first));
   });
 
   appTest('pause writes the playhead immediately', (tester) async {
@@ -241,5 +256,82 @@ void main() {
     await tester.tap(find.text('Queue'));
     await settle(tester);
     expect(find.textContaining('Reached the end'), findsOneWidget);
+  });
+
+  group('now playing', () {
+    Future<void> openPlayer(WidgetTester tester) async {
+      await tester.tap(find.byType(TransportBar));
+      await settle(tester);
+    }
+
+    appTest('the mini bar is inert until something is loaded', (tester) async {
+      expect(find.text('Nothing loaded'), findsOneWidget);
+      await openPlayer(tester);
+      // No route pushed: there is nothing to look at.
+      expect(find.byType(NowPlayingPage), findsNothing);
+    });
+
+    appTest('opens from the mini bar and names what is playing',
+        (tester) async {
+      await intentOn(tester, 0, 'Play from here down');
+      final title = engine.loaded!.title;
+
+      await openPlayer(tester);
+
+      expect(find.byType(NowPlayingPage), findsOneWidget);
+      expect(find.text(title), findsWidgets);
+      expect(find.textContaining('From the queue · #1 of 18'), findsOneWidget);
+    });
+
+    appTest('says when playback will not carry on into the queue',
+        (tester) async {
+      // §5.3 on the surface where it matters most: the difference between
+      // "this continues into your queue" and "this does not".
+      await intentOn(tester, 0, 'Play from here down');
+      await intentOn(tester, 2, 'Play just this');
+      await openPlayer(tester);
+
+      expect(find.textContaining('queue untouched'), findsOneWidget);
+      expect(find.textContaining('From the queue'), findsNothing);
+    });
+
+    appTest('scrubbing moves the playhead and writes it through',
+        (tester) async {
+      await intentOn(tester, 0, 'Play from here down');
+      final playing = engine.loaded!.id;
+      await openPlayer(tester);
+
+      await tester.drag(find.byType(Slider), const Offset(120, 0));
+      await settle(tester);
+
+      expect(engine.position, greaterThan(Duration.zero));
+      // §9 forces a write on seek rather than leaving it to the debounce.
+      expect((await listeningFor(playing)).position, engine.position);
+    });
+
+    appTest('the player offers the same intents as anywhere else',
+        (tester) async {
+      await intentOn(tester, 0, 'Play from here down');
+      await openPlayer(tester);
+
+      await tester.tap(find.byIcon(Icons.more_horiz));
+      await settle(tester);
+
+      expect(find.text('Play just this'), findsOneWidget);
+      expect(find.text('Move to end'), findsOneWidget);
+    });
+
+    appTest('closes back to where it was opened from', (tester) async {
+      await intentOn(tester, 0, 'Play from here down');
+      await openPlayer(tester);
+
+      expect(find.byTooltip('Close'), findsOneWidget);
+      await tester.tap(find.byTooltip('Close'));
+      await settle(tester);
+      await settle(tester);
+
+      expect(find.byType(NowPlayingPage), findsNothing);
+      expect(find.byType(TransportBar), findsOneWidget);
+    });
   });
 }

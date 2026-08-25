@@ -90,8 +90,10 @@ class PlaybackController {
     await _engine.play();
   }
 
-  Future<void> seekBy(Duration delta) async {
-    final at = (_listening?.position ?? Duration.zero) + delta;
+  Future<void> seekBy(Duration delta) =>
+      seekTo((_listening?.position ?? Duration.zero) + delta);
+
+  Future<void> seekTo(Duration at) async {
     await _engine.seek(at < Duration.zero ? Duration.zero : at);
     // §9 forces a write on seek, and this is the only place that can do it:
     // the resulting tick still reports `playing`, so `onTick` cannot tell the
