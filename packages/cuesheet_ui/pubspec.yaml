@@ -1,0 +1,36 @@
+name: cuesheet_ui
+description: >-
+  Design tokens and components for Cuesheet. Knows the domain and nothing else
+  — no database, no audio, no providers. Every component takes plain values and
+  callbacks, which is what keeps it assemblable and testable without a stack
+  underneath it.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.11.4
+
+resolution: workspace
+
+dependencies:
+  cuesheet_domain:
+    path: ../cuesheet_domain
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  fonts:
+    # Used with restraint: screen titles and the now-playing episode, nowhere
+    # else. Everything else is the platform face, which is the point of the
+    # direction — one deliberate deviation rather than a whole new voice.
+    - family: Newsreader
+      fonts:
+        - asset: assets/fonts/Newsreader-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Newsreader-SemiBold.ttf
+          weight: 600

@@ -10,3 +10,4 @@ workspace:
   - packages/cuesheet_data
   - packages/cuesheet_domain
   - packages/cuesheet_playback
+  - packages/cuesheet_ui

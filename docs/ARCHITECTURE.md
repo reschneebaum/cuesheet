@@ -1,6 +1,6 @@
 # Cuesheet — Architecture
 
-Status: draft, v1 planning. Last revised 2026-08-24.
+Status: draft, v1 planning. Last revised 2026-08-25.
 
 ## 1. What Cuesheet is
 
@@ -557,7 +557,7 @@ Front-load what is testable; defer what is not.
 | 2 | `cuesheet_data`. Drift schema, migrations, repositories against in-memory SQLite. **Done** — schema, filter/sort compilation, all six repositories (118 tests), and the debug harness in `cuesheet_app` (7 widget tests). |
 | 3 | Feed ingestion and directory search, fixture-driven. **Done** — RSS parsing and normalizers, §6's identity ladder, conditional fetch and charset handling, ingestion with orphan policy, the iTunes directory client, a real-feed corpus, and a Feeds tab in the debug harness (277 tests in `cuesheet_data`, 17 widget). |
 | 4 | `cuesheet_playback`. Real devices enter the picture. **Done** — the audio boundary, `onTick` as the pure decision function, the just_audio adapter, the coordinator, real transport controls, and background audio with lock-screen metadata. Verified on macOS; an iOS device pass is still outstanding. |
-| 5 | `cuesheet_ui` and `cuesheet_app`. By now the engine works; the UI is a thin reactive skin. |
+| 5 | `cuesheet_ui` and `cuesheet_app`. By now the engine works; the UI is a thin reactive skin. **In progress** — design direction settled in [DESIGN.md](DESIGN.md); tokens, the episode row and the intent sheet are built and tested. |
 
 A deliberately ugly debug UI lands at the end of Phase 2 — lists and buttons, no
 design — so the machine is observable long before Phase 5.
@@ -595,16 +595,20 @@ Resolved since the first draft:
 
 - *Can saved smart lists pin a manual order?* No — sort-driven only, with
   materialization (§7, §8) as the escape hatch.
-- *Are orphaned episodes hidden from lists?* Not yet, and deliberately. §6 says
+- *Are orphaned episodes hidden from lists?* **No — resolved in Phase 5.** They
+  stay visible, labelled `NOT IN FEED` on the row. The alternatives both cost
+  more than they are worth: an `includeOrphaned` flag on `EpisodeQuery` does not
+  survive into `saved_filters`, and putting orphan-ness into §8's vocabulary
+  would make it the first term that is a system fact rather than something the
+  user did. An episode that silently vanishes from every list is the bug the
+  label prevents. Revisit if a long-running library actually fills with ghosts.
+
+  The original reasoning follows. §6 says
   an orphan is hidden rather than deleted, but nothing in `EpisodeQuery`
   excludes them and nothing will before Phase 5: while the app is a debug
   harness, seeing what ingestion did to the library is the entire point, and an
   orphan that silently vanishes from every list is exactly what makes an
   ingestion bug hard to find. Rows carry an `ORPHANED` label instead.
 
-  The Phase 5 fix is not free and should be decided rather than defaulted: an
-  `includeOrphaned` flag on `EpisodeQuery` does not survive into `saved_filters`
-  (which serializes `filter_json` and `sort_json`, not the query), so either the
-  flag needs its own column or orphan-ness needs to enter the filter vocabulary
-  in §8 — and the vocabulary is meant to be about user-facing predicates, which
-  orphan-ness is not.
+  The Phase 5 fix was not free, which is why it was decided rather than
+  defaulted.

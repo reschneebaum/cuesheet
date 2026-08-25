@@ -64,7 +64,8 @@ Grouped by theme; populated as notes are written.
   no cancellation, no structured concurrency, and no actors underneath them.
 
 ### State management
-_(nothing yet)_
+- [InheritedWidget](inherited-widgets.md) — SwiftUI's `@Environment`, except
+  `context` is a position in the tree and reading it is also a subscription.
 
 ### Persistence
 _(nothing yet)_
