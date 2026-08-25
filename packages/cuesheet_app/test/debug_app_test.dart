@@ -1,7 +1,7 @@
 import 'package:cuesheet_data/cuesheet_data.dart';
+import 'package:cuesheet_ui/cuesheet_ui.dart';
 import 'package:cuesheet_playback/cuesheet_playback.dart';
 import 'package:cuesheet_app/src/debug_app.dart';
-import 'package:cuesheet_app/src/intent_menu.dart';
 import 'package:cuesheet_app/src/providers.dart';
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
@@ -49,8 +49,10 @@ void main() {
     await settle(tester);
   }
 
+  /// Tapping a row opens the intent sheet. It does not play anything — that is
+  /// the point: nothing changes the queue except an intent you named.
   Future<void> openMenuOnFirstEpisode(WidgetTester tester) async {
-    await tester.tap(find.byType(IntentMenu).first);
+    await tester.tap(find.byType(EpisodeTile).first);
     await settle(tester);
   }
 
@@ -109,7 +111,7 @@ void main() {
     await settle(tester);
 
     // Then play one episode outside it.
-    await tester.tap(find.byType(IntentMenu).at(3));
+    await tester.tap(find.byType(EpisodeTile).at(3));
     await settle(tester);
     await tester.tap(find.text('Play just this'));
     await settle(tester);
@@ -149,7 +151,7 @@ void main() {
     await tester.tap(find.text('Play from here down'));
     await settle(tester);
 
-    await tester.tap(find.byType(IntentMenu).at(2));
+    await tester.tap(find.byType(EpisodeTile).at(2));
     await settle(tester);
     await tester.tap(find.text('Play from here up'));
     await settle(tester);
@@ -192,6 +194,6 @@ void main() {
     await settle(tester);
 
     // The seeder puts exactly one episode past the relisten window.
-    expect(find.byType(IntentMenu), findsOneWidget);
+    expect(find.byType(EpisodeTile), findsOneWidget);
   });
 }

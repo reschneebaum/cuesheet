@@ -18,6 +18,8 @@ dependencies:
     path: ../cuesheet_domain
   cuesheet_playback:
     path: ../cuesheet_playback
+  cuesheet_ui:
+    path: ../cuesheet_ui
   drift_flutter: ^0.3.1
   flutter:
     sdk: flutter

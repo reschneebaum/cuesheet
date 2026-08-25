@@ -6,7 +6,7 @@
 /// stack underneath them (§3).
 library;
 
-export 'src/components/episode_row.dart';
+export 'src/components/episode_tile.dart';
 export 'src/components/intent_sheet.dart';
 export 'src/format.dart';
 export 'src/theme/cuesheet_theme.dart';

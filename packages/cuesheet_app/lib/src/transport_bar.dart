@@ -1,8 +1,8 @@
 import 'package:cuesheet_domain/cuesheet_domain.dart';
+import 'package:cuesheet_ui/cuesheet_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'format.dart';
 import 'playback_controller.dart';
 import 'providers.dart';
 

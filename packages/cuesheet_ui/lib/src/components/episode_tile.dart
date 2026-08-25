@@ -8,6 +8,11 @@ import '../theme/typography.dart';
 
 /// One episode, in a list.
 ///
+/// Not `EpisodeRow`, which is taken: drift generates that name for the
+/// `episodes` table's record class, and §10 is explicit that a row is not an
+/// entity. The same discipline applies one layer further out — a row is a thing
+/// in the database, so the thing on screen is a tile.
+///
 /// The most repeated surface in the app, so it earns the most restraint: a
 /// title, one line of metadata, and whatever the queue already knows about this
 /// episode. Nothing here is a button except the row itself.
@@ -15,14 +20,15 @@ import '../theme/typography.dart';
 /// **Queue membership is on the row, not behind a tap** (§5.5). An episode that
 /// is queued says so and says where; one that is playing says that. Learning
 /// the state of your own queue should not require opening anything.
-class EpisodeRow extends StatelessWidget {
-  const EpisodeRow({
+class EpisodeTile extends StatelessWidget {
+  const EpisodeTile({
     required this.view,
     required this.now,
     this.queuePosition,
     this.isPlaying = false,
     this.showPodcast = true,
     this.onTap,
+    this.onLongPress,
     super.key,
   });
 
@@ -38,6 +44,9 @@ class EpisodeRow extends StatelessWidget {
   final bool showPodcast;
 
   final VoidCallback? onTap;
+
+  /// Where the debug harness hangs its tools. Absent in the real app.
+  final VoidCallback? onLongPress;
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +73,7 @@ class EpisodeRow extends StatelessWidget {
       excludeSemantics: true,
       child: InkWell(
         onTap: onTap,
+        onLongPress: onLongPress,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(
               Space.gutter, Space.md, Space.gutter, Space.md),

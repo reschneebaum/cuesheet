@@ -1,7 +1,7 @@
 import 'package:cuesheet_app/src/debug_app.dart';
-import 'package:cuesheet_app/src/intent_menu.dart';
 import 'package:cuesheet_app/src/providers.dart';
 import 'package:cuesheet_data/cuesheet_data.dart';
+import 'package:cuesheet_ui/cuesheet_ui.dart';
 import 'package:cuesheet_domain/cuesheet_domain.dart';
 import 'package:cuesheet_playback/cuesheet_playback.dart';
 import 'package:drift/native.dart';
@@ -54,7 +54,7 @@ void main() {
     int index,
     String label,
   ) async {
-    await tester.tap(find.byType(IntentMenu).at(index));
+    await tester.tap(find.byType(EpisodeTile).at(index));
     await settle(tester);
     await tester.tap(find.text(label));
     await settle(tester);

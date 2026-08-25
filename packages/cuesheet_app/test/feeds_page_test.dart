@@ -277,7 +277,7 @@ void main() {
 
       // Hidden in the real UI later (§6); shown here, because the whole
       // question the harness answers is whether ingestion did the right thing.
-      expect(find.text('ORPHANED'), findsOneWidget);
+      expect(find.text('NOT IN FEED'), findsOneWidget);
       expect(find.text('Two'), findsOneWidget);
     });
 

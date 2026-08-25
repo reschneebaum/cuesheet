@@ -1,3 +1,4 @@
+import 'package:cuesheet_ui/cuesheet_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,8 +22,18 @@ class DebugApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Cuesheet (debug)',
-        theme: ThemeData(useMaterial3: true),
+        title: 'Cuesheet',
+        theme: cuesheetThemeData(CuesheetColors.light, Brightness.light),
+        darkTheme: cuesheetThemeData(CuesheetColors.dark, Brightness.dark),
+        // Resolved below MaterialApp so the palette follows whichever theme
+        // Material settled on, rather than re-deriving it from the platform and
+        // risking the two disagreeing.
+        builder: (context, child) => CuesheetTheme(
+          colors: Theme.of(context).brightness == Brightness.dark
+              ? CuesheetColors.dark
+              : CuesheetColors.light,
+          child: child ?? const SizedBox.shrink(),
+        ),
         home: const _Home(),
       );
 }

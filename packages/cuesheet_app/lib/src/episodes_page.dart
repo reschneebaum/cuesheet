@@ -1,9 +1,8 @@
 import 'package:cuesheet_domain/cuesheet_domain.dart';
+import 'package:cuesheet_ui/cuesheet_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'format.dart';
-import 'intent_menu.dart';
 import 'providers.dart';
 import 'queue_actions.dart';
 
@@ -160,6 +159,7 @@ class _EpisodeList extends ConsumerWidget {
     final visible = [for (final v in views) v.episode.id];
     final now = ref.watch(clockProvider)();
     final queue = ref.watch(queueProvider).value ?? QueueState.empty;
+    final items = queue.active?.items ?? const <EpisodeId>[];
     final rungs = ref.watch(matchRungsProvider).value ?? const {};
 
     return ListView.separated(
@@ -167,64 +167,98 @@ class _EpisodeList extends ConsumerWidget {
       separatorBuilder: (_, _) => const Divider(height: 1),
       itemBuilder: (context, index) {
         final view = views[index];
-        final state = listenStateOf(
-          view.listening,
-          episodeDuration: view.episode.duration,
+        final at = items.indexOf(view.episode.id);
+
+        final tile = EpisodeTile(
+          view: view,
           now: now,
+          queuePosition: at < 0 ? null : at + 1,
+          isPlaying: queue.nowPlaying == view.episode.id,
+          // Tapping a tile opens the sheet rather than doing anything. Nothing
+          // in this app changes the queue except an explicit, named intent, and
+          // a tile that played on tap would be the first exception.
+          onTap: () => _choose(context, ref, view, visible),
+          onLongPress: () => _harnessTools(context, ref, view),
         );
-        final queued = queue.active?.items.indexOf(view.episode.id) ?? -1;
-        final playing = queue.nowPlaying == view.episode.id;
 
         final rung = rungs[view.episode.id];
+        if (rung == null) return tile;
 
-        return ListTile(
-          dense: true,
-          leading: playing ? const Icon(Icons.volume_up, size: 18) : null,
-          title: Row(
-            children: [
-              Flexible(child: Text(view.episode.title)),
-              // §6: an orphan is gone from the feed but kept, because the user
-              // did something to it. Shown rather than hidden — this is the
-              // harness, and the whole question is whether ingestion did the
-              // right thing.
-              if (view.episode.isOrphaned)
-                const Padding(
-                  padding: EdgeInsets.only(left: 6),
-                  child: Text('ORPHANED', style: TextStyle(fontSize: 10)),
-                ),
-            ],
-          ),
-          subtitle: Text(
-            '${view.podcastTitle} · ${describeState(state)} · '
-            '${formatDuration(view.listening.position)}'
-            ' / ${formatDuration(view.episode.duration)}'
-            '${view.listening.playCount > 0 ? ' · ×${view.listening.playCount}' : ''}'
-            // Queue membership on the row itself, not hidden behind a tap.
-            '${queued >= 0 ? ' · queued #${queued + 1}' : ''}'
-            // How this row got attached to its feed item.
-            '${rung == null ? '' : ' · matched: ${rung.name}'}',
-          ),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IconButton(
-                tooltip: 'Advance 5 minutes (stands in for playback)',
-                icon: const Icon(Icons.fast_forward, size: 18),
-                onPressed: () => ref
-                    .read(queueActionsProvider)
-                    .advancePlayhead(view, const Duration(minutes: 5)),
+        // Which rung of §6's ladder attached this episode. Diagnostic, not
+        // product — so it is annotated around the tile here rather than built
+        // into it, and `cuesheet_ui` never learns that ingestion exists.
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            tile,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(Space.gutter, 0, Space.gutter, Space.sm),
+              child: Text(
+                'matched: ${rung.name}',
+                style: Type.label.copyWith(
+                    color: CuesheetTheme.of(context).inkFaint),
               ),
-              IconButton(
-                tooltip: 'Mark unplayed',
-                icon: const Icon(Icons.restart_alt, size: 18),
-                onPressed: () =>
-                    ref.read(queueActionsProvider).resetListening(view),
-              ),
-              IntentMenu(episode: view.episode.id, visible: visible),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
+  }
+
+  Future<void> _choose(
+    BuildContext context,
+    WidgetRef ref,
+    EpisodeView view,
+    List<EpisodeId> visible,
+  ) async {
+    final intent = await showIntentSheet(
+      context,
+      episodeTitle: view.episode.title,
+      intents: episodeIntents(view.episode.id),
+      queue: ref.read(queueProvider).value ?? QueueState.empty,
+      visible: visible,
+    );
+    if (intent == null) return;
+    await ref.read(queueActionsProvider).apply(intent, visible);
+  }
+
+  /// Not product. Setting an episode to an arbitrary listening state by hand is
+  /// the only way to exercise the §9 rules without listening to an hour of
+  /// audio, so the tools stay — on a long press, where they are reachable
+  /// without cluttering the row the rest of the design is about.
+  Future<void> _harnessTools(
+    BuildContext context,
+    WidgetRef ref,
+    EpisodeView view,
+  ) async {
+    final actions = ref.read(queueActionsProvider);
+    final choice = await showModalBottomSheet<String>(
+      context: context,
+      builder: (context) => SafeArea(
+        top: false,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: const Text('Advance 5 minutes'),
+              subtitle: const Text('harness only'),
+              onTap: () => Navigator.of(context).pop('advance'),
+            ),
+            ListTile(
+              title: const Text('Mark unplayed'),
+              subtitle: const Text('harness only'),
+              onTap: () => Navigator.of(context).pop('reset'),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    switch (choice) {
+      case 'advance':
+        await actions.advancePlayhead(view, const Duration(minutes: 5));
+      case 'reset':
+        await actions.resetListening(view);
+    }
   }
 }
